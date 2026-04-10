@@ -1,16 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Sidebar from "@/components/Sidebar";
 import ChatPanel from "@/components/ChatPanel";
 import InsightsPanel from "@/components/InsightsPanel";
 import TopBar from "@/components/TopBar";
+import CommandPalette from "@/components/CommandPalette";
 
 export default function Home() {
   const [selectedDataset, setSelectedDataset] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  // Command Palette keyboard shortcut (Cmd+K or Ctrl+K)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleProcessingChange = (processing: boolean) => {
     setIsProcessing(processing);
@@ -30,6 +45,12 @@ export default function Home() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
+      {/* Command Palette */}
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+      />
+
       {/* Top Bar */}
       <TopBar isProcessing={isProcessing} />
 
