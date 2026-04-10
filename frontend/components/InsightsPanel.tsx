@@ -20,22 +20,24 @@ export default function InsightsPanel({
   currentStep = 0 
 }: InsightsPanelProps) {
   return (
-    <div className="h-full flex flex-col bg-slate-950/50">
+    <div className="h-full flex flex-col bg-black/10">
       {/* Header */}
-      <div className="p-4 border-b border-cyan-500/20">
-        <h2 className="text-lg font-semibold text-cyan-400 flex items-center gap-2">
-          <BarChart3 className="w-5 h-5" />
-          Insights & Workflow
+      <div className="p-6 border-b border-white/10">
+        <h2 className="text-lg font-bold text-foreground flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+            <BarChart3 className="w-5 h-5 text-white" />
+          </div>
+          <span>Insights & Workflow</span>
         </h2>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-6 space-y-6">
         {/* AI Workflow Visualization - ENHANCED */}
-        <div className="glass-strong rounded-xl p-4 border border-cyan-500/20 relative overflow-hidden">
+        <div className="card-premium rounded-2xl p-6 relative overflow-hidden">
           {/* Animated background gradient */}
           {isProcessing && (
             <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5"
+              className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5"
               animate={{
                 opacity: [0.3, 0.6, 0.3],
               }}
@@ -46,14 +48,14 @@ export default function InsightsPanel({
             />
           )}
 
-          <h3 className="text-sm font-semibold text-slate-300 mb-2 flex items-center gap-2 relative z-10">
-            <Activity className="w-4 h-4 text-cyan-400" />
-            AI Pipeline Status
+          <h3 className="text-base font-bold text-foreground mb-4 flex items-center gap-3 relative z-10">
+            <Activity className="w-5 h-5 text-blue-400" />
+            <span>AI Pipeline Status</span>
             {isProcessing && (
               <motion.span
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="text-xs text-cyan-400 ml-auto"
+                className="text-sm text-blue-400 ml-auto font-medium"
               >
                 Processing...
               </motion.span>
@@ -69,36 +71,36 @@ export default function InsightsPanel({
         </div>
 
         {/* Quick Stats */}
-        <div className="glass-strong rounded-xl p-4 border border-cyan-500/20">
-          <h3 className="text-sm font-semibold text-slate-300 mb-4">
+        <div className="card-premium rounded-2xl p-6">
+          <h3 className="text-base font-bold text-foreground mb-5">
             Quick Stats
           </h3>
 
-          <div className="space-y-3">
-            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-800/30">
-              <span className="text-sm text-slate-400">Total Queries</span>
-              <span className="text-lg font-bold text-cyan-400">24</span>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/10">
+              <span className="text-sm font-medium text-muted-foreground">Total Queries</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">24</span>
             </div>
 
-            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-800/30">
-              <span className="text-sm text-slate-400">Avg Response</span>
-              <span className="text-lg font-bold text-green-400">2.3s</span>
+            <div className="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-white/10">
+              <span className="text-sm font-medium text-muted-foreground">Avg Response</span>
+              <span className="text-2xl font-bold text-green-400">2.3s</span>
             </div>
 
-            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-800/30">
-              <span className="text-sm text-slate-400">Success Rate</span>
-              <span className="text-lg font-bold text-purple-400">98%</span>
+            <div className="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-white/10">
+              <span className="text-sm font-medium text-muted-foreground">Success Rate</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">98%</span>
             </div>
           </div>
         </div>
 
         {/* Suggested Actions */}
-        <div className="glass-strong rounded-xl p-4 border border-cyan-500/20">
-          <h3 className="text-sm font-semibold text-slate-300 mb-4">
+        <div className="card-premium rounded-2xl p-6">
+          <h3 className="text-base font-bold text-foreground mb-5">
             Suggested Actions
           </h3>
 
-          <div className="space-y-2">
+          <div className="space-y-3">
             {[
               "Show data summary",
               "Detect missing values",
@@ -109,13 +111,13 @@ export default function InsightsPanel({
                 key={index}
                 whileHover={{ scale: 1.02, x: 5 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full text-left p-3 rounded-lg bg-slate-800/30 hover:bg-cyan-500/10 border border-transparent hover:border-cyan-500/30 transition-all group"
+                className="w-full text-left p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all group"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-slate-300 group-hover:text-cyan-400 transition-colors">
+                  <span className="text-sm font-medium text-foreground group-hover:text-blue-400 transition-colors">
                     {action}
                   </span>
-                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-400 transition-colors" />
                 </div>
               </motion.button>
             ))}
@@ -123,16 +125,16 @@ export default function InsightsPanel({
         </div>
 
         {/* Placeholder for Charts */}
-        <div className="glass-strong rounded-xl p-4 border border-cyan-500/20">
-          <h3 className="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-            <PieChart className="w-4 h-4 text-cyan-400" />
-            Visualizations
+        <div className="card-premium rounded-2xl p-6">
+          <h3 className="text-base font-bold text-foreground mb-5 flex items-center gap-3">
+            <PieChart className="w-5 h-5 text-blue-400" />
+            <span>Visualizations</span>
           </h3>
 
-          <div className="h-48 rounded-lg bg-slate-800/30 border border-slate-700/50 flex items-center justify-center">
+          <div className="h-56 rounded-xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-white/10 flex items-center justify-center">
             <div className="text-center">
-              <BarChart3 className="w-12 h-12 text-slate-600 mx-auto mb-2" />
-              <p className="text-sm text-slate-500">
+              <BarChart3 className="w-16 h-16 text-muted-foreground mx-auto mb-3 opacity-50" />
+              <p className="text-sm text-muted-foreground font-medium">
                 Charts will appear here
               </p>
             </div>
