@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        <div className="min-h-screen mesh-gradient">
+        <div className="min-h-screen premium-bg noise-overlay">
           {children}
         </div>
       </body>
