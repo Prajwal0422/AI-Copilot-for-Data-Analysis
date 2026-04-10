@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, Activity, Zap } from "lucide-react";
+import { Brain, Activity, Zap, Sparkles } from "lucide-react";
 
 interface TopBarProps {
   isProcessing: boolean;
@@ -9,86 +9,121 @@ interface TopBarProps {
 
 export default function TopBar({ isProcessing }: TopBarProps) {
   return (
-    <div className="h-20 glass-strong border-b border-white/10 flex items-center justify-between px-8 relative overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-50" />
+    <div className="h-16 glass-ultra border-b border-white/5 flex items-center justify-between px-6 relative overflow-hidden">
+      {/* Animated gradient line at bottom */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-[1px]"
+        style={{
+          background: 'linear-gradient(90deg, transparent, #3B82F6, #8B5CF6, #EC4899, transparent)',
+        }}
+        animate={{
+          x: ['-100%', '100%'],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      />
       
       {/* Logo & Title */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex items-center gap-4 relative z-10"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="flex items-center gap-3 relative z-10"
       >
         <div className="relative">
+          {/* Rotating glow */}
           <motion.div
             animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
+              rotate: 360,
             }}
             transition={{
-              duration: 3,
+              duration: 8,
               repeat: Infinity,
-              ease: "linear",
+              ease: 'linear',
             }}
-            className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-2xl opacity-40"
+            className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-xl opacity-50"
           />
-          <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
-            <Brain className="w-7 h-7 text-white" />
+          
+          {/* Icon container */}
+          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-[1px]">
+            <div className="w-full h-full rounded-xl bg-[#0A0A0F] flex items-center justify-center">
+              <Brain className="w-5 h-5 text-white" />
+            </div>
           </div>
         </div>
+        
         <div>
-          <h1 className="text-2xl font-bold gradient-text tracking-tight">
+          <h1 className="text-lg font-bold text-gradient tracking-tight">
             AI Data Copilot
           </h1>
-          <p className="text-xs text-muted-foreground font-medium">
-            Intelligent Analysis Engine
+          <p className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase">
+            Neural Analysis Engine
           </p>
         </div>
       </motion.div>
 
       {/* Status Indicators */}
-      <div className="flex items-center gap-4 relative z-10">
+      <div className="flex items-center gap-3 relative z-10">
         {/* Processing Status */}
         <motion.div
           animate={{
             scale: isProcessing ? [1, 1.02, 1] : 1,
           }}
           transition={{
-            duration: 1.5,
+            duration: 2,
             repeat: isProcessing ? Infinity : 0,
           }}
-          className="flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-white/10"
-        >
-          <Activity
-            className={`w-4 h-4 ${
-              isProcessing ? "text-blue-400 animate-pulse" : "text-muted-foreground"
-            }`}
-          />
-          <span className="text-sm font-medium text-foreground">
-            {isProcessing ? "Processing..." : "Ready"}
-          </span>
-        </motion.div>
-
-        {/* AI Status */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 glow-primary"
+          className="flex items-center gap-2 px-4 py-2 rounded-full glass-ultra"
         >
           <motion.div
             animate={{
-              scale: [1, 1.2, 1],
+              rotate: isProcessing ? 360 : 0,
+            }}
+            transition={{
+              duration: 2,
+              repeat: isProcessing ? Infinity : 0,
+              ease: 'linear',
+            }}
+          >
+            <Activity className={`w-3.5 h-3.5 ${isProcessing ? 'text-blue-400' : 'text-muted-foreground'}`} />
+          </motion.div>
+          <span className="text-xs font-semibold text-foreground">
+            {isProcessing ? 'Processing' : 'Ready'}
+          </span>
+        </motion.div>
+
+        {/* AI Status with animated border */}
+        <div className="relative">
+          <motion.div
+            className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-md"
+            animate={{
+              opacity: [0.5, 0.8, 0.5],
             }}
             transition={{
               duration: 2,
               repeat: Infinity,
             }}
-          >
-            <Zap className="w-4 h-4 text-blue-400" />
-          </motion.div>
-          <span className="text-sm font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            AI Active
-          </span>
-        </motion.div>
+          />
+          <div className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20">
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+              }}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            </motion.div>
+            <span className="text-xs font-bold text-gradient">
+              AI Active
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

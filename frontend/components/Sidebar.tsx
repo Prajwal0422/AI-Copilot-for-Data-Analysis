@@ -45,59 +45,61 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
   };
 
   return (
-    <div className="h-full flex flex-col bg-black/20">
+    <div className="h-full flex flex-col relative">
       {/* Header */}
-      <div className="p-6 border-b border-white/10">
-        <h2 className="text-lg font-bold text-foreground flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
-            <Database className="w-5 h-5 text-white" />
+      <div className="p-4 border-b border-white/5">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 p-[1px]">
+            <div className="w-full h-full rounded-lg bg-[#0A0A0F] flex items-center justify-center">
+              <Database className="w-4 h-4 text-blue-400" />
+            </div>
           </div>
-          <span>Datasets</span>
-        </h2>
+          <h2 className="text-sm font-bold text-foreground">Datasets</h2>
+        </div>
       </div>
 
       {/* Upload Zone */}
-      <div className="p-6">
+      <div className="p-4">
         <motion.div
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.01, y: -2 }}
+          whileTap={{ scale: 0.99 }}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           className={`
-            relative overflow-hidden rounded-2xl p-8 cursor-pointer
-            transition-all duration-300
+            relative overflow-hidden rounded-2xl p-6 cursor-pointer
+            transition-all duration-500
             ${
               isDragging
-                ? "card-premium border-2 border-blue-500 glow-primary"
-                : "card-premium hover:border-white/20"
+                ? "card-ultra border-2 border-blue-500 glow-blue"
+                : "card-ultra hover:border-blue-500/30"
             }
           `}
         >
           <div className="text-center relative z-10">
             <motion.div
               animate={{
-                y: isDragging ? [0, -10, 0] : 0,
+                y: isDragging ? [0, -8, 0] : 0,
               }}
               transition={{
-                duration: 0.6,
+                duration: 0.8,
                 repeat: isDragging ? Infinity : 0,
               }}
-              className="mb-4"
+              className="mb-3"
             >
-              <div className="w-16 h-16 mx-auto rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-white/10">
-                <Upload className="w-8 h-8 text-blue-400" />
+              <div className="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-blue-500/20">
+                <Upload className="w-6 h-6 text-blue-400" />
               </div>
             </motion.div>
-            <p className="text-base font-semibold text-foreground mb-1">
+            <p className="text-sm font-semibold text-foreground mb-1">
               Upload Dataset
             </p>
-            <p className="text-sm text-muted-foreground">
-              Drag & drop or click to browse
+            <p className="text-xs text-muted-foreground">
+              Drop files or click to browse
             </p>
           </div>
 
-          {/* Animated background effect */}
+          {/* Animated background */}
           {isDragging && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -109,7 +111,7 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
       </div>
 
       {/* Dataset List */}
-      <div className="flex-1 overflow-y-auto px-6 pb-6">
+      <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-2">
         <AnimatePresence>
           {datasets.map((dataset, index) => (
             <motion.div
@@ -117,28 +119,29 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ scale: 1.01, x: 4 }}
               onClick={() => onSelectDataset(dataset.id)}
               className={`
-                mb-4 p-5 rounded-2xl cursor-pointer
+                p-4 rounded-xl cursor-pointer group
                 transition-all duration-300
                 ${
                   selectedDataset === dataset.id
-                    ? "card-premium border-2 border-blue-500 glow-primary"
-                    : "card-premium hover:border-white/20"
+                    ? "card-ultra border-2 border-blue-500 glow-blue"
+                    : "card-ultra hover:border-blue-500/20"
                 }
               `}
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-white/10">
-                    <FileText className="w-5 h-5 text-blue-400" />
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center gap-2 flex-1">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-blue-500/20 flex-shrink-0">
+                    <FileText className="w-4 h-4 text-blue-400" />
                   </div>
-                  <div>
-                    <span className="text-sm font-semibold text-foreground block">
+                  <div className="flex-1 min-w-0">
+                    <span className="text-xs font-semibold text-foreground block truncate">
                       {dataset.name}
                     </span>
-                    <div className="flex gap-3 text-xs text-muted-foreground mt-1">
+                    <div className="flex gap-2 text-[10px] text-muted-foreground mt-0.5">
                       <span>{dataset.rows.toLocaleString()} rows</span>
                       <span>•</span>
                       <span>{dataset.columns} cols</span>
@@ -148,13 +151,16 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="text-red-400 hover:text-red-300 p-2 rounded-lg hover:bg-red-500/10 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="text-red-400/60 hover:text-red-400 p-1.5 rounded-lg hover:bg-red-500/10 transition-colors"
                 >
-                  <Trash2 className="w-4 h-4" />
+                  <Trash2 className="w-3.5 h-3.5" />
                 </motion.button>
               </div>
 
-              <div className="text-xs text-muted-foreground">
+              <div className="text-[10px] text-muted-foreground">
                 {dataset.uploadedAt}
               </div>
             </motion.div>
