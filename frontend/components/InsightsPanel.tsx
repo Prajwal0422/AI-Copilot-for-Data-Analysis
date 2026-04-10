@@ -7,20 +7,18 @@ import {
   PieChart,
   Activity,
   ArrowRight,
-  CheckCircle2,
-  Loader2,
 } from "lucide-react";
+import WorkflowVisualization from "./WorkflowVisualization";
 
-export default function InsightsPanel() {
-  // Mock workflow steps
-  const workflowSteps = [
-    { id: 1, label: "User Query", status: "completed", icon: CheckCircle2 },
-    { id: 2, label: "LLM Processing", status: "completed", icon: CheckCircle2 },
-    { id: 3, label: "Tool Selection", status: "active", icon: Loader2 },
-    { id: 4, label: "Code Execution", status: "pending", icon: Activity },
-    { id: 5, label: "Generate Output", status: "pending", icon: TrendingUp },
-  ];
+interface InsightsPanelProps {
+  isProcessing?: boolean;
+  currentStep?: number;
+}
 
+export default function InsightsPanel({ 
+  isProcessing = false,
+  currentStep = 0 
+}: InsightsPanelProps) {
   return (
     <div className="h-full flex flex-col bg-slate-950/50">
       {/* Header */}
@@ -32,79 +30,41 @@ export default function InsightsPanel() {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {/* AI Workflow Visualization */}
-        <div className="glass-strong rounded-xl p-4 border border-cyan-500/20">
-          <h3 className="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        {/* AI Workflow Visualization - ENHANCED */}
+        <div className="glass-strong rounded-xl p-4 border border-cyan-500/20 relative overflow-hidden">
+          {/* Animated background gradient */}
+          {isProcessing && (
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5"
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+              }}
+            />
+          )}
+
+          <h3 className="text-sm font-semibold text-slate-300 mb-2 flex items-center gap-2 relative z-10">
             <Activity className="w-4 h-4 text-cyan-400" />
             AI Pipeline Status
+            {isProcessing && (
+              <motion.span
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="text-xs text-cyan-400 ml-auto"
+              >
+                Processing...
+              </motion.span>
+            )}
           </h3>
 
-          <div className="space-y-3">
-            {workflowSteps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative"
-                >
-                  {/* Connector Line */}
-                  {index < workflowSteps.length - 1 && (
-                    <div className="absolute left-4 top-8 w-0.5 h-6 bg-cyan-500/30" />
-                  )}
-
-                  <div
-                    className={`flex items-center gap-3 p-3 rounded-lg transition-all ${
-                      step.status === "active"
-                        ? "bg-cyan-500/10 border border-cyan-500/30"
-                        : step.status === "completed"
-                        ? "bg-green-500/10 border border-green-500/30"
-                        : "bg-slate-800/30 border border-slate-700/30"
-                    }`}
-                  >
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                        step.status === "active"
-                          ? "bg-cyan-500/20 text-cyan-400"
-                          : step.status === "completed"
-                          ? "bg-green-500/20 text-green-400"
-                          : "bg-slate-700/50 text-slate-500"
-                      }`}
-                    >
-                      <Icon
-                        className={`w-4 h-4 ${
-                          step.status === "active" ? "animate-spin" : ""
-                        }`}
-                      />
-                    </div>
-
-                    <div className="flex-1">
-                      <p
-                        className={`text-sm font-medium ${
-                          step.status === "active"
-                            ? "text-cyan-400"
-                            : step.status === "completed"
-                            ? "text-green-400"
-                            : "text-slate-500"
-                        }`}
-                      >
-                        {step.label}
-                      </p>
-                    </div>
-
-                    {step.status === "active" && (
-                      <motion.div
-                        animate={{ opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                        className="w-2 h-2 bg-cyan-400 rounded-full"
-                      />
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
+          <div className="relative z-10">
+            <WorkflowVisualization 
+              isProcessing={isProcessing} 
+              currentStep={currentStep}
+            />
           </div>
         </div>
 

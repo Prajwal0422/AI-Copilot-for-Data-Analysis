@@ -10,6 +10,23 @@ import TopBar from "@/components/TopBar";
 export default function Home() {
   const [selectedDataset, setSelectedDataset] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const handleProcessingChange = (processing: boolean) => {
+    setIsProcessing(processing);
+    if (processing) {
+      // Simulate workflow progression
+      setCurrentStep(0);
+      const steps = [0, 1, 2, 3, 4, 5];
+      steps.forEach((step, index) => {
+        setTimeout(() => {
+          setCurrentStep(step);
+        }, index * 400);
+      });
+    } else {
+      setCurrentStep(0);
+    }
+  };
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
@@ -40,7 +57,7 @@ export default function Home() {
         >
           <ChatPanel
             selectedDataset={selectedDataset}
-            onProcessingChange={setIsProcessing}
+            onProcessingChange={handleProcessingChange}
           />
         </motion.div>
 
@@ -51,7 +68,10 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="w-96"
         >
-          <InsightsPanel />
+          <InsightsPanel 
+            isProcessing={isProcessing}
+            currentStep={currentStep}
+          />
         </motion.div>
       </div>
     </div>

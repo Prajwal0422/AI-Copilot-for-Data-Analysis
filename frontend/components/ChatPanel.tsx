@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Sparkles, User, Bot } from "lucide-react";
+import TypewriterText from "./TypewriterText";
+import ParticleEffect from "./ParticleEffect";
 
 interface ChatPanelProps {
   selectedDataset: string | null;
@@ -14,6 +16,7 @@ interface Message {
   role: "user" | "assistant";
   content: string;
   timestamp: Date;
+  isTyping?: boolean;
 }
 
 export default function ChatPanel({
@@ -27,10 +30,12 @@ export default function ChatPanel({
       content:
         "👋 Hello! I'm your AI Data Copilot. Upload a dataset and ask me anything about your data. I can analyze, visualize, and provide insights!",
       timestamp: new Date(),
+      isTyping: false,
     },
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [showParticles, setShowParticles] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -44,11 +49,16 @@ export default function ChatPanel({
   const handleSend = async () => {
     if (!input.trim()) return;
 
+    // Trigger particle effect
+    setShowParticles(true);
+    setTimeout(() => setShowParticles(false), 100);
+
     const userMessage: Message = {
       id: Date.now().toString(),
       role: "user",
       content: input,
       timestamp: new Date(),
+      isTyping: false,
     };
 
     setMessages((prev) => [...prev, userMessage]);
@@ -56,18 +66,28 @@ export default function ChatPanel({
     setIsTyping(true);
     onProcessingChange(true);
 
-    // Simulate AI response (will connect to backend later)
+    // Simulate AI response with typewriter effect
     setTimeout(() => {
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
         content:
-          "I'm analyzing your request. This will be connected to the AI backend soon!",
+          "I'm analyzing your data using advanced AI algorithms. Based on the patterns I've detected, here are some key insights: Your dataset shows interesting correlations that could be valuable for decision-making.",
         timestamp: new Date(),
+        isTyping: true,
       };
       setMessages((prev) => [...prev, aiMessage]);
       setIsTyping(false);
-      onProcessingChange(false);
+      
+      // Mark typing as complete after animation
+      setTimeout(() => {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === aiMessage.id ? { ...msg, isTyping: false } : msg
+          )
+        );
+        onProcessingChange(false);
+      }, aiMessage.content.length * 30 + 500);
     }, 2000);
   };
 
@@ -109,16 +129,27 @@ export default function ChatPanel({
               )}
 
               <div
-                className={`max-w-[70%] rounded-2xl p-4 ${
+                className={`max-w-[70%] rounded-2xl p-4 relative ${
                   message.role === "user"
                     ? "bg-gradient-to-br from-cyan-500 to-cyan-600 text-white"
                     : "glass-strong border border-cyan-500/20"
                 }`}
               >
-                <p className="text-sm leading-relaxed">{message.content}</p>
+                <p className="text-sm leading-relaxed">
+                  {message.isTyping ? (
+                    <TypewriterText text={message.content} speed={30} />
+                  ) : (
+                    message.content
+                  )}
+                </p>
                 <span className="text-xs opacity-60 mt-2 block">
                   {message.timestamp.toLocaleTimeString()}
                 </span>
+
+                {/* Particle effect on send */}
+                {message.role === "user" && showParticles && (
+                  <ParticleEffect trigger={true} color="cyan" />
+                )}
               </div>
 
               {message.role === "user" && (
@@ -166,30 +197,53 @@ export default function ChatPanel({
       </div>
 
       {/* Input Area */}
-      <div className="p-4 border-t border-cyan-500/20 glass">
+      <div className="p-4 border-t border-cyan-500/20 glass relative">
         <div className="flex gap-3">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && handleSend()}
-            placeholder={
-              selectedDataset
-                ? "Ask anything about your data..."
-                : "Upload a dataset to start..."
-            }
-            disabled={!selectedDataset}
-            className="flex-1 bg-slate-900/50 border border-cyan-500/30 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
-          />
+          <div className="flex-1 relative">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyPress={(e) => e.key === "Enter" && handleSend()}
+              placeholder={
+                selectedDataset
+                  ? "Ask anything about your data..."
+                  : "Upload a dataset to start..."
+              }
+              disabled={!selectedDataset}
+              className="w-full bg-slate-900/50 border border-cyan-500/30 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            />
+            {/* Animated border on focus */}
+            <motion.div
+              className="absolute inset-0 rounded-xl pointer-events-none"
+              animate={{
+                boxShadow: input
+                  ? "0 0 20px rgba(6, 182, 212, 0.3)"
+                  : "0 0 0px rgba(6, 182, 212, 0)",
+              }}
+            />
+          </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleSend}
             disabled={!input.trim() || !selectedDataset}
-            className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl text-white font-medium flex items-center gap-2 hover:from-cyan-600 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all glow-cyan"
+            className="relative px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl text-white font-medium flex items-center gap-2 hover:from-cyan-600 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all glow-cyan overflow-hidden"
           >
-            <Send className="w-4 h-4" />
-            Send
+            {/* Shimmer effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              animate={{
+                x: ["-100%", "200%"],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            />
+            <Send className="w-4 h-4 relative z-10" />
+            <span className="relative z-10">Send</span>
           </motion.button>
         </div>
       </div>
