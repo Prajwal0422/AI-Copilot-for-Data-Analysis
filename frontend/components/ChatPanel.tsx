@@ -227,17 +227,38 @@ export default function ChatPanel({
                   : "Upload a dataset to start..."
               }
               disabled={!selectedDataset}
-              className="w-full input-ultra px-4 py-3 text-sm text-foreground placeholder-muted-foreground disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+              className="w-full input-ultra px-5 py-3.5 text-sm text-foreground placeholder-muted-foreground disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-all duration-300"
+            />
+            {/* Focus indicator */}
+            <motion.div
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              initial={{ opacity: 0 }}
+              whileFocus={{ opacity: 1 }}
+              style={{
+                boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)',
+              }}
             />
           </div>
           <motion.button
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleSend}
             disabled={!input.trim() || !selectedDataset}
-            className="relative px-6 py-3 btn-premium rounded-xl text-white text-sm font-bold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all overflow-hidden"
+            className="relative px-6 py-3.5 btn-premium rounded-xl text-white text-sm font-bold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all overflow-hidden group"
           >
-            <Send className="w-4 h-4 relative z-10" />
+            {/* Animated gradient background */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 animate-gradient"
+              animate={{
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+            <Send className="w-4 h-4 relative z-10 group-hover:rotate-12 transition-transform" />
             <span className="relative z-10">Send</span>
           </motion.button>
         </div>

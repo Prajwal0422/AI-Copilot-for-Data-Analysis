@@ -115,15 +115,25 @@ export default function InsightsPanel({
             ].map((action, index) => (
               <motion.button
                 key={index}
-                whileHover={{ scale: 1.01, x: 2 }}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ scale: 1.01, x: 4 }}
                 whileTap={{ scale: 0.99 }}
-                className="w-full text-left p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-blue-500/20 transition-all group"
+                className="w-full text-left p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-blue-500/30 transition-all group relative overflow-hidden"
               >
-                <div className="flex items-center justify-between">
+                {/* Hover gradient */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.6 }}
+                />
+                <div className="flex items-center justify-between relative z-10">
                   <span className="text-xs font-medium text-foreground group-hover:text-blue-400 transition-colors">
                     {action}
                   </span>
-                  <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-blue-400 transition-colors" />
+                  <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                 </div>
               </motion.button>
             ))}

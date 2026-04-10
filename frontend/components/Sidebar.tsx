@@ -76,7 +76,7 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
             ${
               isDragging
                 ? "card-ultra border-2 border-blue-500 glow-blue"
-                : "card-ultra hover:border-blue-500/30"
+                : "card-ultra hover:border-blue-500/30 shimmer"
             }
           `}
         >
