@@ -145,7 +145,11 @@ export default function ChatPanel({
                   )}
                 </p>
                 <span className="text-xs opacity-70 mt-3 block font-medium">
-                  {message.timestamp.toLocaleTimeString()}
+                  {message.timestamp.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    hour12: false 
+                  })}
                 </span>
 
                 {/* Particle effect on send */}
