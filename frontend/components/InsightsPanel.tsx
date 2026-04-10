@@ -22,18 +22,22 @@ export default function InsightsPanel({
   return (
     <div className="h-full flex flex-col relative">
       {/* Header */}
-      <div className="p-4 border-b border-white/5">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 p-[1px]">
-            <div className="w-full h-full rounded-lg bg-[#0A0A0F] flex items-center justify-center">
+      <div className="p-5">
+        <div className="flex items-center gap-3">
+          <motion.div 
+            className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 p-[1px] relative"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <div className="w-full h-full rounded-xl bg-[#0B0B12] flex items-center justify-center">
               <BarChart3 className="w-4 h-4 text-blue-400" />
             </div>
-          </div>
-          <h2 className="text-sm font-bold text-foreground">Insights</h2>
+          </motion.div>
+          <h2 className="text-sm font-bold text-foreground tracking-tight">Insights</h2>
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+      <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3.5">
         {/* AI Workflow Visualization */}
         <div className="card-ultra rounded-2xl p-4 relative overflow-hidden">
           {/* Animated background gradient */}

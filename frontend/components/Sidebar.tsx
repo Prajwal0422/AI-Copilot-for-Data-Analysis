@@ -47,19 +47,23 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
   return (
     <div className="h-full flex flex-col relative">
       {/* Header */}
-      <div className="p-4 border-b border-white/5">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 p-[1px]">
-            <div className="w-full h-full rounded-lg bg-[#0A0A0F] flex items-center justify-center">
+      <div className="p-5">
+        <div className="flex items-center gap-3">
+          <motion.div 
+            className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 p-[1px] relative"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <div className="w-full h-full rounded-xl bg-[#0B0B12] flex items-center justify-center">
               <Database className="w-4 h-4 text-blue-400" />
             </div>
-          </div>
-          <h2 className="text-sm font-bold text-foreground">Datasets</h2>
+          </motion.div>
+          <h2 className="text-sm font-bold text-foreground tracking-tight">Datasets</h2>
         </div>
       </div>
 
       {/* Upload Zone */}
-      <div className="p-4">
+      <div className="px-5 pb-4">
         <motion.div
           whileHover={{ scale: 1.01, y: -2 }}
           whileTap={{ scale: 0.99 }}
@@ -111,7 +115,7 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
       </div>
 
       {/* Dataset List */}
-      <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-2">
+      <div className="flex-1 overflow-y-auto px-5 pb-5 space-y-2.5">
         <AnimatePresence>
           {datasets.map((dataset, index) => (
             <motion.div

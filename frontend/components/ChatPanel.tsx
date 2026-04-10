@@ -94,26 +94,34 @@ export default function ChatPanel({
   return (
     <div className="h-full flex flex-col relative">
       {/* Chat Header */}
-      <div className="p-4 border-b border-white/5 glass-ultra">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 p-[1px]">
-            <div className="w-full h-full rounded-lg bg-[#0A0A0F] flex items-center justify-center">
+      <div className="p-5">
+        <div className="flex items-center gap-3">
+          <motion.div 
+            className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 p-[1px] relative"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <div className="w-full h-full rounded-xl bg-[#0B0B12] flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-blue-400" />
             </div>
-          </div>
-          <h2 className="text-sm font-bold text-foreground">
+          </motion.div>
+          <h2 className="text-sm font-bold text-foreground tracking-tight">
             AI Assistant
           </h2>
           {selectedDataset && (
-            <span className="ml-auto text-[10px] px-3 py-1 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 border border-blue-500/20 font-semibold uppercase tracking-wide">
+            <motion.span
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="ml-auto text-[10px] px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 border border-blue-500/30 font-semibold uppercase tracking-wide"
+            >
               Active
-            </span>
+            </motion.span>
           )}
         </div>
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-4">
+      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
         <AnimatePresence>
           {messages.map((message, index) => (
             <motion.div
@@ -205,7 +213,7 @@ export default function ChatPanel({
       </div>
 
       {/* Input Area */}
-      <div className="p-4 border-t border-white/5 glass-ultra relative">
+      <div className="p-5 relative">
         <div className="flex gap-3">
           <div className="flex-1 relative">
             <input
