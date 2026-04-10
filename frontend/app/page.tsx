@@ -61,7 +61,7 @@ export default function Home() {
           initial={{ x: -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="w-80 border-r border-white/10"
+          className="w-72 border-r border-white/5"
         >
           <Sidebar
             selectedDataset={selectedDataset}
@@ -74,7 +74,7 @@ export default function Home() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex-1 border-r border-white/10"
+          className="flex-1 border-r border-white/5"
         >
           <ChatPanel
             selectedDataset={selectedDataset}
@@ -87,7 +87,7 @@ export default function Home() {
           initial={{ x: 300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="w-96"
+          className="w-80"
         >
           <InsightsPanel 
             isProcessing={isProcessing}
