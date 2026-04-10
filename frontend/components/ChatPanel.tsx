@@ -92,16 +92,18 @@ export default function ChatPanel({
   };
 
   return (
-    <div className="h-full flex flex-col bg-slate-950/30">
+    <div className="h-full flex flex-col bg-black/10">
       {/* Chat Header */}
-      <div className="p-4 border-b border-cyan-500/20 glass">
-        <div className="flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-cyan-400" />
-          <h2 className="text-lg font-semibold text-slate-200">
+      <div className="p-6 border-b border-white/10 glass">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+            <Sparkles className="w-5 h-5 text-white" />
+          </div>
+          <h2 className="text-lg font-bold text-foreground">
             AI Assistant
           </h2>
           {selectedDataset && (
-            <span className="ml-auto text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+            <span className="ml-auto text-xs px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 border border-blue-500/30 font-medium">
               Dataset Active
             </span>
           )}
@@ -123,16 +125,16 @@ export default function ChatPanel({
               }`}
             >
               {message.role === "assistant" && (
-                <div className="w-8 h-8 rounded-full glass-strong flex items-center justify-center border border-cyan-500/30 flex-shrink-0">
-                  <Bot className="w-4 h-4 text-cyan-400" />
+                <div className="w-10 h-10 rounded-xl glass-strong flex items-center justify-center border border-white/10 flex-shrink-0">
+                  <Bot className="w-5 h-5 text-blue-400" />
                 </div>
               )}
 
               <div
-                className={`max-w-[70%] rounded-2xl p-4 relative ${
+                className={`max-w-[70%] rounded-2xl p-5 relative ${
                   message.role === "user"
-                    ? "bg-gradient-to-br from-cyan-500 to-cyan-600 text-white"
-                    : "glass-strong border border-cyan-500/20"
+                    ? "bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-lg"
+                    : "card-premium"
                 }`}
               >
                 <p className="text-sm leading-relaxed">
@@ -142,7 +144,7 @@ export default function ChatPanel({
                     message.content
                   )}
                 </p>
-                <span className="text-xs opacity-60 mt-2 block">
+                <span className="text-xs opacity-70 mt-3 block font-medium">
                   {message.timestamp.toLocaleTimeString()}
                 </span>
 
@@ -153,8 +155,8 @@ export default function ChatPanel({
               </div>
 
               {message.role === "user" && (
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-                  <User className="w-4 h-4 text-white" />
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <User className="w-5 h-5 text-white" />
                 </div>
               )}
             </motion.div>
@@ -168,25 +170,25 @@ export default function ChatPanel({
             animate={{ opacity: 1, y: 0 }}
             className="flex gap-3"
           >
-            <div className="w-8 h-8 rounded-full glass-strong flex items-center justify-center border border-cyan-500/30">
-              <Bot className="w-4 h-4 text-cyan-400" />
+            <div className="w-10 h-10 rounded-xl glass-strong flex items-center justify-center border border-white/10">
+              <Bot className="w-5 h-5 text-blue-400" />
             </div>
-            <div className="glass-strong border border-cyan-500/20 rounded-2xl p-4">
-              <div className="flex gap-1">
+            <div className="card-premium rounded-2xl p-5">
+              <div className="flex gap-2">
                 <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 0.6, repeat: Infinity }}
-                  className="w-2 h-2 bg-cyan-400 rounded-full"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="w-2.5 h-2.5 bg-blue-400 rounded-full"
                 />
                 <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-                  className="w-2 h-2 bg-cyan-400 rounded-full"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 0.8, repeat: Infinity, delay: 0.2 }}
+                  className="w-2.5 h-2.5 bg-purple-400 rounded-full"
                 />
                 <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
-                  className="w-2 h-2 bg-cyan-400 rounded-full"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
+                  className="w-2.5 h-2.5 bg-pink-400 rounded-full"
                 />
               </div>
             </div>
@@ -197,8 +199,8 @@ export default function ChatPanel({
       </div>
 
       {/* Input Area */}
-      <div className="p-4 border-t border-cyan-500/20 glass relative">
-        <div className="flex gap-3">
+      <div className="p-6 border-t border-white/10 glass relative">
+        <div className="flex gap-4">
           <div className="flex-1 relative">
             <input
               type="text"
@@ -211,15 +213,15 @@ export default function ChatPanel({
                   : "Upload a dataset to start..."
               }
               disabled={!selectedDataset}
-              className="w-full bg-slate-900/50 border border-cyan-500/30 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="w-full input-premium px-5 py-4 text-sm text-foreground placeholder-muted-foreground disabled:opacity-50 disabled:cursor-not-allowed font-medium"
             />
             {/* Animated border on focus */}
             <motion.div
               className="absolute inset-0 rounded-xl pointer-events-none"
               animate={{
                 boxShadow: input
-                  ? "0 0 20px rgba(6, 182, 212, 0.3)"
-                  : "0 0 0px rgba(6, 182, 212, 0)",
+                  ? "0 0 0 2px hsl(var(--primary) / 0.3)"
+                  : "0 0 0 0px hsl(var(--primary) / 0)",
               }}
             />
           </div>
@@ -228,11 +230,11 @@ export default function ChatPanel({
             whileTap={{ scale: 0.95 }}
             onClick={handleSend}
             disabled={!input.trim() || !selectedDataset}
-            className="relative px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl text-white font-medium flex items-center gap-2 hover:from-cyan-600 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all glow-cyan overflow-hidden"
+            className="relative px-8 py-4 btn-primary rounded-xl text-white font-semibold flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed transition-all overflow-hidden"
           >
             {/* Shimmer effect */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              className="absolute inset-0 shimmer"
               animate={{
                 x: ["-100%", "200%"],
               }}
@@ -242,7 +244,7 @@ export default function ChatPanel({
                 repeatDelay: 1,
               }}
             />
-            <Send className="w-4 h-4 relative z-10" />
+            <Send className="w-5 h-5 relative z-10" />
             <span className="relative z-10">Send</span>
           </motion.button>
         </div>
