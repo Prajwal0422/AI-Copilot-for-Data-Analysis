@@ -41,6 +41,7 @@ const config: Config = {
       animation: {
         "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float": "float 3s ease-in-out infinite",
+        "float-slow": "floatSlow 20s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite alternate",
         "shimmer": "shimmer 2s linear infinite",
         "gradient": "gradient 8s linear infinite",
@@ -52,6 +53,12 @@ const config: Config = {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
+        },
+        floatSlow: {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "25%": { transform: "translate(30px, -30px) scale(1.05)" },
+          "50%": { transform: "translate(-20px, 20px) scale(0.95)" },
+          "75%": { transform: "translate(20px, 30px) scale(1.02)" },
         },
         glow: {
           "0%": { boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" },
