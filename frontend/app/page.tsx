@@ -55,13 +55,13 @@ export default function Home() {
       <TopBar isProcessing={isProcessing} />
 
       {/* Main Content - 3 Panel Layout with floating effect */}
-      <div className="flex-1 flex overflow-hidden gap-4 p-4">
+      <div className="flex-1 flex overflow-hidden gap-5 p-5">
         {/* Left Sidebar - Dataset Management */}
         <motion.div
           initial={{ x: -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="w-72 rounded-2xl glass-ultra border border-white/5 overflow-hidden shadow-2xl"
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="w-80 rounded-3xl glass-ultra border border-white/10 overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_80px_rgba(59,130,246,0.3)] transition-all duration-500"
         >
           <Sidebar
             selectedDataset={selectedDataset}
@@ -73,8 +73,8 @@ export default function Home() {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex-1 rounded-2xl glass-ultra border border-white/5 overflow-hidden shadow-2xl"
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="flex-1 rounded-3xl glass-ultra border border-white/10 overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_80px_rgba(139,92,246,0.3)] transition-all duration-500"
         >
           <ChatPanel
             selectedDataset={selectedDataset}
@@ -86,8 +86,8 @@ export default function Home() {
         <motion.div
           initial={{ x: 300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="w-80 rounded-2xl glass-ultra border border-white/5 overflow-hidden shadow-2xl"
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="w-96 rounded-3xl glass-ultra border border-white/10 overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_80px_rgba(236,72,153,0.3)] transition-all duration-500"
         >
           <InsightsPanel 
             isProcessing={isProcessing}

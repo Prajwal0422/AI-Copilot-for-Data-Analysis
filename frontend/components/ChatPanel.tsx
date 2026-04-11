@@ -135,16 +135,16 @@ export default function ChatPanel({
               }`}
             >
               {message.role === "assistant" && (
-                <div className="w-8 h-8 rounded-xl glass-ultra flex items-center justify-center border border-blue-500/20 flex-shrink-0">
-                  <Bot className="w-4 h-4 text-blue-400" />
+                <div className="w-9 h-9 rounded-xl glass-ultra flex items-center justify-center border border-blue-500/30 flex-shrink-0 shadow-lg shadow-blue-500/20">
+                  <Bot className="w-4 h-4 text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
                 </div>
               )}
 
               <div
-                className={`max-w-[70%] rounded-2xl p-4 relative ${
+                className={`max-w-[75%] rounded-2xl p-4 relative backdrop-blur-xl ${
                   message.role === "user"
-                    ? "bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/20"
-                    : "card-ultra"
+                    ? "bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 text-white shadow-[0_8px_32px_rgba(59,130,246,0.4)] border border-blue-400/20"
+                    : "card-ultra shadow-lg"
                 }`}
               >
                 <p className="text-sm leading-relaxed">
@@ -169,8 +169,8 @@ export default function ChatPanel({
               </div>
 
               {message.role === "user" && (
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-pink-500/20">
-                  <User className="w-4 h-4 text-white" />
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-pink-500/30 border border-pink-400/20">
+                  <User className="w-4 h-4 text-white drop-shadow-lg" />
                 </div>
               )}
             </motion.div>
