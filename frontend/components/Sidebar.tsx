@@ -91,8 +91,8 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
               }}
               className="mb-3"
             >
-              <div className="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-blue-500/20">
-                <Upload className="w-6 h-6 text-blue-400" />
+              <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-blue-500/30 shadow-lg shadow-blue-500/20 backdrop-blur-xl">
+                <Upload className="w-6 h-6 text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
               </div>
             </motion.div>
             <p className="text-sm font-semibold text-foreground mb-1">
@@ -128,18 +128,18 @@ export default function Sidebar({ selectedDataset, onSelectDataset }: SidebarPro
               onClick={() => onSelectDataset(dataset.id)}
               className={`
                 p-4 rounded-xl cursor-pointer group
-                transition-all duration-300
+                transition-all duration-300 relative overflow-hidden
                 ${
                   selectedDataset === dataset.id
-                    ? "card-ultra border-2 border-blue-500 glow-blue"
-                    : "card-ultra hover:border-blue-500/20"
+                    ? "card-ultra border-2 border-blue-500 glow-blue shadow-[0_8px_32px_rgba(59,130,246,0.4)]"
+                    : "card-ultra hover:border-blue-500/30 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)]"
                 }
               `}
             >
               <div className="flex items-start justify-between mb-2">
-                <div className="flex items-center gap-2 flex-1">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-blue-500/20 flex-shrink-0">
-                    <FileText className="w-4 h-4 text-blue-400" />
+                <div className="flex items-center gap-2.5 flex-1">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-blue-500/30 flex-shrink-0 shadow-lg shadow-blue-500/20">
+                    <FileText className="w-4 h-4 text-blue-400 drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="text-xs font-semibold text-foreground block truncate">

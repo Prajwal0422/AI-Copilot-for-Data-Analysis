@@ -83,20 +83,29 @@ export default function InsightsPanel({
           </h3>
 
           <div className="space-y-2">
-            <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/10">
+            <motion.div 
+              whileHover={{ scale: 1.02, x: 2 }}
+              className="flex items-center justify-between p-3.5 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 shadow-lg shadow-blue-500/10 backdrop-blur-xl"
+            >
               <span className="text-xs font-medium text-muted-foreground">Queries</span>
-              <span className="text-lg font-bold text-gradient">24</span>
-            </div>
+              <span className="text-lg font-bold text-gradient drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">24</span>
+            </motion.div>
 
-            <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/10">
+            <motion.div 
+              whileHover={{ scale: 1.02, x: 2 }}
+              className="flex items-center justify-between p-3.5 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 shadow-lg shadow-green-500/10 backdrop-blur-xl"
+            >
               <span className="text-xs font-medium text-muted-foreground">Response</span>
-              <span className="text-lg font-bold text-green-400">2.3s</span>
-            </div>
+              <span className="text-lg font-bold text-green-400 drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]">2.3s</span>
+            </motion.div>
 
-            <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/10">
+            <motion.div 
+              whileHover={{ scale: 1.02, x: 2 }}
+              className="flex items-center justify-between p-3.5 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 shadow-lg shadow-purple-500/10 backdrop-blur-xl"
+            >
               <span className="text-xs font-medium text-muted-foreground">Success</span>
-              <span className="text-lg font-bold text-gradient">98%</span>
-            </div>
+              <span className="text-lg font-bold text-gradient drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">98%</span>
+            </motion.div>
           </div>
         </div>
 
