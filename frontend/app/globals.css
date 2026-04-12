@@ -69,41 +69,15 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
     0 20px 60px 0 rgba(0, 0, 0, 0.7),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
-    0 0 0 1px rgba(59, 130, 246, 0.08);
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
   position: relative;
 }
 
-.glass-ultra::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.3),
-    rgba(139, 92, 246, 0.2),
-    rgba(34, 211, 238, 0.3)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-
-.glass-ultra:hover::before {
-  opacity: 1;
-}
-
 .glass-ultra:hover {
-  border-color: rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, 0.2);
   box-shadow: 
-    0 24px 70px 0 rgba(59, 130, 246, 0.25),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
-    0 0 0 1px rgba(59, 130, 246, 0.15);
+    0 24px 70px 0 rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
 /* Noise Texture Overlay */
