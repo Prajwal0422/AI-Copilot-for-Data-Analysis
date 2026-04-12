@@ -17,25 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        <div className="min-h-screen bg-[#0A0A0F] relative overflow-hidden">
-          {/* Clean gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0F] via-[#0F0F14] to-[#0A0A0F]" />
-          
-          {/* Subtle animated orbs */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
-            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px] animate-float-slow" />
-            <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px] animate-float-slow" style={{ animationDelay: '3s', animationDuration: '25s' }} />
-          </div>
-          
-          {/* Subtle noise texture */}
-          <div className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-overlay" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-          }} />
-          
-          {/* Content */}
-          <div className="relative z-10">
-            {children}
-          </div>
+        <div className="min-h-screen bg-[#0a0a0f] text-white">
+          {children}
         </div>
       </body>
     </html>
