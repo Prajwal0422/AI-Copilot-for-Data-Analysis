@@ -1,99 +1,35 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import Sidebar from "@/components/Sidebar";
-import ChatPanel from "@/components/ChatPanel";
-import InsightsPanel from "@/components/InsightsPanel";
-import TopBar from "@/components/TopBar";
-import CommandPalette from "@/components/CommandPalette";
+import { Sparkles } from "lucide-react";
 
 export default function Home() {
-  const [selectedDataset, setSelectedDataset] = useState<string | null>(null);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
-
-  // Command Palette keyboard shortcut (Cmd+K or Ctrl+K)
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setIsCommandPaletteOpen((prev) => !prev);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
-  const handleProcessingChange = (processing: boolean) => {
-    setIsProcessing(processing);
-    if (processing) {
-      // Simulate workflow progression
-      setCurrentStep(0);
-      const steps = [0, 1, 2, 3, 4, 5];
-      steps.forEach((step, index) => {
-        setTimeout(() => {
-          setCurrentStep(step);
-        }, index * 400);
-      });
-    } else {
-      setCurrentStep(0);
-    }
-  };
-
   return (
-    <div className="h-screen flex flex-col overflow-hidden">
-      {/* Command Palette */}
-      <CommandPalette
-        isOpen={isCommandPaletteOpen}
-        onClose={() => setIsCommandPaletteOpen(false)}
-      />
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      {/* Top Navigation */}
+      <nav className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-semibold">AI Copilot</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-sm text-slate-400">Live</span>
+            </div>
+            <span className="text-sm text-slate-500">GPT-4</span>
+          </div>
+        </div>
+      </nav>
 
-      {/* Top Bar */}
-      <TopBar isProcessing={isProcessing} />
-
-      {/* Main Content - 3 Panel Layout with floating effect */}
-      <div className="flex-1 flex overflow-hidden gap-5 p-5">
-        {/* Left Sidebar - Dataset Management */}
-        <motion.div
-          initial={{ x: -300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="w-80 rounded-3xl glass-ultra border border-white/10 overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_80px_rgba(59,130,246,0.3)] transition-all duration-500"
-        >
-          <Sidebar
-            selectedDataset={selectedDataset}
-            onSelectDataset={setSelectedDataset}
-          />
-        </motion.div>
-
-        {/* Center Panel - Chat Interface */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex-1 rounded-3xl glass-ultra border border-white/10 overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_80px_rgba(139,92,246,0.3)] transition-all duration-500"
-        >
-          <ChatPanel
-            selectedDataset={selectedDataset}
-            onProcessingChange={handleProcessingChange}
-          />
-        </motion.div>
-
-        {/* Right Panel - Insights & Visualizations */}
-        <motion.div
-          initial={{ x: 300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="w-96 rounded-3xl glass-ultra border border-white/10 overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_80px_rgba(236,72,153,0.3)] transition-all duration-500"
-        >
-          <InsightsPanel 
-            isProcessing={isProcessing}
-            currentStep={currentStep}
-          />
-        </motion.div>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto p-6">
+        <div className="text-center py-20">
+          <h1 className="text-4xl font-bold mb-4">AI Data Analysis Copilot</h1>
+          <p className="text-slate-400">Building clean professional UI...</p>
+        </div>
       </div>
     </div>
   );
