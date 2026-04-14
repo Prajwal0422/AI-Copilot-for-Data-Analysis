@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, Upload, Database, Send } from "lucide-react";
+import { Sparkles, Upload, Database, Send, Activity, Zap, CheckCircle } from "lucide-react";
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -9,20 +9,34 @@ export default function Home() {
   ]);
   const [input, setInput] = useState("");
   const [selectedDataset, setSelectedDataset] = useState<string | null>(null);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const workflowSteps = [
+    { name: "Query", icon: Activity, color: "text-cyan-400" },
+    { name: "LLM", icon: Sparkles, color: "text-purple-400" },
+    { name: "Tool", icon: Zap, color: "text-blue-400" },
+    { name: "Execute", icon: CheckCircle, color: "text-green-400" }
+  ];
 
   const handleSend = () => {
     if (!input.trim() || !selectedDataset) return;
     
     setMessages([...messages, { id: Date.now(), role: "user", content: input }]);
     setInput("");
-    
+    setCurrentStep(1);
+
+    // Simulate workflow
+    setTimeout(() => setCurrentStep(2), 800);
+    setTimeout(() => setCurrentStep(3), 1600);
     setTimeout(() => {
+      setCurrentStep(4);
       setMessages(prev => [...prev, {
         id: Date.now(),
         role: "assistant",
         content: "Analysis complete! Your data shows a 23% increase in Q4 revenue."
       }]);
-    }, 1000);
+      setTimeout(() => setCurrentStep(0), 1000);
+    }, 2400);
   };
 
   return (
@@ -86,40 +100,73 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Center - Chat */}
-        <div className="flex-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-6 flex flex-col">
-          <div className="flex-1 overflow-y-auto mb-4 space-y-3">
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className={`p-4 rounded-xl max-w-[80%] ${
-                  msg.role === "user"
-                    ? "ml-auto bg-blue-600 text-white"
-                    : "bg-slate-800 border border-slate-700"
-                }`}
+        {/* Center - Chat + Workflow */}
+        <div className="flex-1 flex flex-col gap-4">
+          {/* Chat */}
+          <div className="flex-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-6 flex flex-col">
+            <div className="flex-1 overflow-y-auto mb-4 space-y-3">
+              {messages.map((msg) => (
+                <div
+                  key={msg.id}
+                  className={`p-4 rounded-xl max-w-[80%] ${
+                    msg.role === "user"
+                      ? "ml-auto bg-blue-600 text-white"
+                      : "bg-slate-800 border border-slate-700"
+                  }`}
+                >
+                  {msg.content}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-3">
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && handleSend()}
+                placeholder={selectedDataset ? "Ask your data anything..." : "Select a dataset first"}
+                disabled={!selectedDataset}
+                className="flex-1 px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all disabled:opacity-50"
+              />
+              <button
+                onClick={handleSend}
+                disabled={!input.trim() || !selectedDataset}
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-medium hover:from-blue-500 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
-                {msg.content}
-              </div>
-            ))}
+                <Send className="w-4 h-4" />
+                Send
+              </button>
+            </div>
           </div>
 
-          <div className="flex gap-3">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && handleSend()}
-              placeholder={selectedDataset ? "Ask your data anything..." : "Select a dataset first"}
-              disabled={!selectedDataset}
-              className="flex-1 px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all disabled:opacity-50"
-            />
-            <button
-              onClick={handleSend}
-              disabled={!input.trim() || !selectedDataset}
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-medium hover:from-blue-500 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-            >
-              <Send className="w-4 h-4" />
-              Send
-            </button>
+          {/* Workflow Steps */}
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
+            <div className="flex justify-center gap-8">
+              {workflowSteps.map((step, index) => {
+                const Icon = step.icon;
+                const isActive = currentStep === index + 1;
+                const isComplete = currentStep > index + 1;
+                
+                return (
+                  <div key={step.name} className="flex flex-col items-center">
+                    <div
+                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+                        isActive
+                          ? "bg-blue-600 scale-110"
+                          : isComplete
+                          ? "bg-green-600"
+                          : "bg-slate-800 border border-slate-700"
+                      }`}
+                    >
+                      <Icon className={`w-5 h-5 ${isActive || isComplete ? "text-white" : "text-slate-500"}`} />
+                    </div>
+                    <span className={`text-xs mt-2 ${isActive ? step.color : "text-slate-500"}`}>
+                      {step.name}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
