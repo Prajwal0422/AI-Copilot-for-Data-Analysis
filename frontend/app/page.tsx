@@ -177,7 +177,7 @@ export default function Home() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4"
+            className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 shadow-lg"
           >
             <div className="flex justify-center gap-8">
               {workflowSteps.map((step, index) => {
@@ -186,22 +186,39 @@ export default function Home() {
                 const isComplete = currentStep > index + 1;
                 
                 return (
-                  <div key={step.name} className="flex flex-col items-center">
-                    <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+                  <motion.div
+                    key={step.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
+                    className="flex flex-col items-center"
+                  >
+                    <motion.div
+                      animate={{
+                        scale: isActive ? 1.15 : 1,
+                        backgroundColor: isComplete
+                          ? "rgb(34, 197, 94)"
+                          : isActive
+                          ? "rgb(59, 130, 246)"
+                          : "rgb(30, 41, 59)"
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${
                         isActive
-                          ? "bg-blue-600 scale-110"
+                          ? "border-blue-400 shadow-lg shadow-blue-500/50"
                           : isComplete
-                          ? "bg-green-600"
-                          : "bg-slate-800 border border-slate-700"
+                          ? "border-green-400 shadow-lg shadow-green-500/50"
+                          : "border-slate-700"
                       }`}
                     >
                       <Icon className={`w-5 h-5 ${isActive || isComplete ? "text-white" : "text-slate-500"}`} />
-                    </div>
-                    <span className={`text-xs mt-2 ${isActive ? step.color : "text-slate-500"}`}>
+                    </motion.div>
+                    <span className={`text-xs mt-2 font-medium transition-colors ${
+                      isActive ? step.color : isComplete ? "text-green-400" : "text-slate-500"
+                    }`}>
                       {step.name}
                     </span>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
