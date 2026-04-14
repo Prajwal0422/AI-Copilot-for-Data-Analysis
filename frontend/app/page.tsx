@@ -75,20 +75,25 @@ export default function Home() {
           transition={{ delay: 0.1 }}
           className="w-64 flex flex-col gap-4"
         >
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
             <h3 className="text-sm font-semibold mb-4 text-slate-300">Datasets</h3>
             
-            <div className="border-2 border-dashed border-slate-700 rounded-lg p-6 text-center hover:border-blue-500/50 transition-colors cursor-pointer mb-4">
+            <motion.div
+              whileHover={{ scale: 1.02, borderColor: "rgba(59, 130, 246, 0.5)" }}
+              className="border-2 border-dashed border-slate-700 rounded-lg p-6 text-center hover:bg-slate-800/30 transition-all cursor-pointer mb-4"
+            >
               <Upload className="w-6 h-6 mx-auto mb-2 text-slate-500" />
               <p className="text-xs text-slate-500">Drop CSV here</p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedDataset("1")}
               className={`p-3 rounded-lg cursor-pointer transition-all ${
                 selectedDataset === "1"
-                  ? "bg-blue-500/20 border-2 border-blue-500"
-                  : "bg-slate-800/50 border border-slate-700 hover:bg-slate-800"
+                  ? "bg-blue-500/20 border-2 border-blue-500 shadow-lg shadow-blue-500/30"
+                  : "bg-slate-800/50 border border-slate-700 hover:bg-slate-800 hover:border-slate-600"
               }`}
             >
               <div className="flex items-center gap-2 mb-1">
@@ -96,16 +101,23 @@ export default function Home() {
                 <span className="text-sm font-medium">sales_data.csv</span>
               </div>
               <p className="text-xs text-slate-500">1,250 rows • 8 cols</p>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
             <h3 className="text-sm font-semibold mb-3 text-slate-300">Tech Stack</h3>
             <div className="space-y-2">
-              {["Next.js", "FastAPI", "GPT-4"].map((tech) => (
-                <div key={tech} className="px-3 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">
+              {["Next.js", "FastAPI", "GPT-4"].map((tech, i) => (
+                <motion.div
+                  key={tech}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + i * 0.1 }}
+                  whileHover={{ scale: 1.03, x: 4 }}
+                  className="px-3 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700 hover:border-slate-600 hover:bg-slate-800 transition-all"
+                >
                   {tech}
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
