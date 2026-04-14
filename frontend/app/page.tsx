@@ -232,28 +232,37 @@ export default function Home() {
           transition={{ delay: 0.3 }}
           className="w-96 flex flex-col gap-4"
         >
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
             <h3 className="text-sm font-semibold mb-4 text-slate-300">Insights</h3>
-            <div className="h-48 bg-slate-800/50 rounded-lg border border-slate-700 flex items-center justify-center">
-              <p className="text-sm text-slate-500">Chart visualization</p>
-            </div>
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              className="h-48 bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-lg border border-slate-700 flex items-center justify-center overflow-hidden relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <p className="text-sm text-slate-500 relative z-10">Chart visualization</p>
+            </motion.div>
           </div>
 
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
             <h3 className="text-sm font-semibold mb-3 text-slate-300">Stats</h3>
             <div className="space-y-2">
-              <div className="flex justify-between p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                <span className="text-sm text-slate-400">Queries</span>
-                <span className="text-sm font-semibold text-blue-400">24</span>
-              </div>
-              <div className="flex justify-between p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                <span className="text-sm text-slate-400">Avg Time</span>
-                <span className="text-sm font-semibold text-green-400">2.3s</span>
-              </div>
-              <div className="flex justify-between p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                <span className="text-sm text-slate-400">Success</span>
-                <span className="text-sm font-semibold text-purple-400">98%</span>
-              </div>
+              {[
+                { label: "Queries", value: "24", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/30" },
+                { label: "Avg Time", value: "2.3s", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/30" },
+                { label: "Success", value: "98%", color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/30" }
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + i * 0.1 }}
+                  whileHover={{ scale: 1.03, x: -4 }}
+                  className={`flex justify-between p-3 ${stat.bg} rounded-lg border ${stat.border} hover:border-opacity-70 transition-all shadow-sm`}
+                >
+                  <span className="text-sm text-slate-400">{stat.label}</span>
+                  <span className={`text-sm font-semibold ${stat.color}`}>{stat.value}</span>
+                </motion.div>
+              ))}
             </div>
           </div>
         </motion.div>
