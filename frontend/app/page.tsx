@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Sparkles, Upload, Database, Send, Activity, Zap, CheckCircle } from "lucide-react";
 
 export default function Home() {
@@ -42,7 +43,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Top Navigation */}
-      <nav className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm"
+      >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
@@ -58,12 +64,17 @@ export default function Home() {
             <span className="text-sm text-slate-500">GPT-4</span>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Main Layout - 3 Panels */}
       <div className="max-w-7xl mx-auto p-6 flex gap-6 h-[calc(100vh-80px)]">
         {/* Left Panel - Datasets */}
-        <div className="w-64 flex flex-col gap-4">
+        <motion.div
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="w-64 flex flex-col gap-4"
+        >
           <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
             <h3 className="text-sm font-semibold mb-4 text-slate-300">Datasets</h3>
             
@@ -98,16 +109,23 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Center - Chat + Workflow */}
-        <div className="flex-1 flex flex-col gap-4">
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="flex-1 flex flex-col gap-4"
+        >
           {/* Chat */}
           <div className="flex-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-6 flex flex-col">
             <div className="flex-1 overflow-y-auto mb-4 space-y-3">
               {messages.map((msg) => (
-                <div
+                <motion.div
                   key={msg.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   className={`p-4 rounded-xl max-w-[80%] ${
                     msg.role === "user"
                       ? "ml-auto bg-blue-600 text-white"
@@ -115,7 +133,7 @@ export default function Home() {
                   }`}
                 >
                   {msg.content}
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -140,7 +158,12 @@ export default function Home() {
           </div>
 
           {/* Workflow Steps */}
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4"
+          >
             <div className="flex justify-center gap-8">
               {workflowSteps.map((step, index) => {
                 const Icon = step.icon;
@@ -167,11 +190,16 @@ export default function Home() {
                 );
               })}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Panel - Output */}
-        <div className="w-96 flex flex-col gap-4">
+        <motion.div
+          initial={{ x: 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="w-96 flex flex-col gap-4"
+        >
           <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4">
             <h3 className="text-sm font-semibold mb-4 text-slate-300">Insights</h3>
             <div className="h-48 bg-slate-800/50 rounded-lg border border-slate-700 flex items-center justify-center">
@@ -196,7 +224,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
