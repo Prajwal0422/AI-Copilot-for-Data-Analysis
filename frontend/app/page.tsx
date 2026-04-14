@@ -131,20 +131,21 @@ export default function Home() {
           className="flex-1 flex flex-col gap-4"
         >
           {/* Chat */}
-          <div className="flex-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-6 flex flex-col">
+          <div className="flex-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-6 flex flex-col shadow-lg hover:shadow-xl transition-all">
             <div className="flex-1 overflow-y-auto mb-4 space-y-3">
-              {messages.map((msg) => (
+              {messages.map((msg, index) => (
                 <motion.div
                   key={msg.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
                   className={`p-4 rounded-xl max-w-[80%] ${
                     msg.role === "user"
-                      ? "ml-auto bg-blue-600 text-white"
-                      : "bg-slate-800 border border-slate-700"
+                      ? "ml-auto bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30"
+                      : "bg-slate-800/80 border border-slate-700/50 shadow-md"
                   }`}
                 >
-                  {msg.content}
+                  <p className="text-sm leading-relaxed">{msg.content}</p>
                 </motion.div>
               ))}
             </div>
@@ -156,16 +157,18 @@ export default function Home() {
                 onKeyPress={(e) => e.key === "Enter" && handleSend()}
                 placeholder={selectedDataset ? "Ask your data anything..." : "Select a dataset first"}
                 disabled={!selectedDataset}
-                className="flex-1 px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all disabled:opacity-50"
+                className="flex-1 px-5 py-3.5 bg-slate-800/50 border border-slate-700 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:bg-slate-800 transition-all disabled:opacity-50 placeholder:text-slate-500"
               />
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={handleSend}
                 disabled={!input.trim() || !selectedDataset}
-                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-medium hover:from-blue-500 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-7 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-medium hover:from-blue-500 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40"
               >
                 <Send className="w-4 h-4" />
                 Send
-              </button>
+              </motion.button>
             </div>
           </div>
 
