@@ -11,6 +11,7 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [selectedDataset, setSelectedDataset] = useState<string | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
 
   const workflowSteps = [
     { name: "Query", icon: Activity, color: "text-cyan-400" },
@@ -25,18 +26,22 @@ export default function Home() {
     setMessages([...messages, { id: Date.now(), role: "user", content: input }]);
     setInput("");
     setCurrentStep(1);
+    setIsTyping(true);
 
     // Simulate workflow
     setTimeout(() => setCurrentStep(2), 800);
     setTimeout(() => setCurrentStep(3), 1600);
     setTimeout(() => {
       setCurrentStep(4);
-      setMessages(prev => [...prev, {
-        id: Date.now(),
-        role: "assistant",
-        content: "Analysis complete! Your data shows a 23% increase in Q4 revenue."
-      }]);
-      setTimeout(() => setCurrentStep(0), 1000);
+      setTimeout(() => {
+        setIsTyping(false);
+        setMessages(prev => [...prev, {
+          id: Date.now(),
+          role: "assistant",
+          content: "Analysis complete! Your data shows a 23% increase in Q4 revenue."
+        }]);
+        setTimeout(() => setCurrentStep(0), 1000);
+      }, 400);
     }, 2400);
   };
 
@@ -148,6 +153,25 @@ export default function Home() {
                   <p className="text-sm leading-relaxed">{msg.content}</p>
                 </motion.div>
               ))}
+              
+              {isTyping && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/50 shadow-md w-fit"
+                >
+                  <div className="flex gap-1.5">
+                    {[0, 1, 2].map((i) => (
+                      <motion.div
+                        key={i}
+                        animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+                        className="w-2 h-2 bg-blue-400 rounded-full"
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              )}
             </div>
 
             <div className="flex gap-3">
