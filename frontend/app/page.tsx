@@ -65,11 +65,13 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-sm text-slate-400">Live</span>
+              <span className="text-sm text-green-400 font-medium">Live</span>
             </div>
-            <span className="text-sm text-slate-500">GPT-4</span>
+            <div className="px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full">
+              <span className="text-sm text-purple-400 font-medium">GPT-4</span>
+            </div>
           </div>
         </div>
       </motion.nav>
