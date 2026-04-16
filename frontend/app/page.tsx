@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Upload, Database, Send, Activity, Zap, CheckCircle } from "lucide-react";
+import { Sparkles, Upload, Database, Send, Activity, Zap, CheckCircle, TrendingUp } from "lucide-react";
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -28,7 +28,6 @@ export default function Home() {
     setCurrentStep(1);
     setIsTyping(true);
 
-    // Simulate workflow
     setTimeout(() => setCurrentStep(2), 800);
     setTimeout(() => setCurrentStep(3), 1600);
     setTimeout(() => {
@@ -38,7 +37,7 @@ export default function Home() {
         setMessages(prev => [...prev, {
           id: Date.now(),
           role: "assistant",
-          content: "Analysis complete! Your data shows a 23% increase in Q4 revenue."
+          content: "Analysis complete! Your data shows a 23% increase in Q4 revenue with strong performance in December."
         }]);
         setTimeout(() => setCurrentStep(0), 1000);
       }, 400);
@@ -46,255 +45,96 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      {/* Top Navigation */}
-      <motion.nav
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm"
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
-              <Sparkles className="w-5 h-5 text-white" />
+    <div className="min-h-screen bg-[#0a0a0f] text-white overflow-hidden relative">
+      {/* Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+            x: [0, 100, 0],
+            y: [0, -50, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute w-[600px] h-[600px] bg-blue-500/30 rounded-full blur-[120px] -top-48 -left-48"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+            x: [0, -80, 0],
+            y: [0, 80, 0]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 5 }}
+          className="absolute w-[500px] h-[500px] bg-purple-500/30 rounded-full blur-[120px] top-1/2 right-0"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.25, 0.45, 0.25],
+            x: [0, 50, 0],
+            y: [0, -80, 0]
+          }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 10 }}
+          className="absolute w-[550px] h-[550px] bg-pink-500/20 rounded-full blur-[120px] bottom-0 left-1/3"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Top Navigation */}
+        <motion.nav
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="border-b border-white/10 bg-black/20 backdrop-blur-xl"
+        >
+          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+                className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-blue-500/50"
+              >
+                <Sparkles className="w-6 h-6 text-white" />
+              </motion.div>
+              <div>
+                <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  AI Copilot
+                </h1>
+                <p className="text-xs text-slate-400">Data Analysis Assistant</p>
+              </div>
             </div>
-            <div>
-              <span className="text-xl font-semibold">AI Copilot</span>
-              <p className="text-xs text-slate-500">Data Analysis Assistant</p>
+            <div className="flex items-center gap-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full backdrop-blur-sm"
+              >
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-lg shadow-green-400/50" />
+                <span className="text-sm text-green-400 font-medium">Live</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full backdrop-blur-sm"
+              >
+                <span className="text-sm text-purple-400 font-medium">GPT-4 Turbo</span>
+              </motion.div>
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-sm text-green-400 font-medium">Live</span>
-            </div>
-            <div className="px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full">
-              <span className="text-sm text-purple-400 font-medium">GPT-4</span>
-            </div>
+        </motion.nav>
+
+        {/* Main Content - Placeholder */}
+        <div className="max-w-7xl mx-auto p-6">
+          <div className="text-center py-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              Beautiful UI Loading...
+            </motion.h2>
           </div>
         </div>
-      </motion.nav>
-
-      {/* Main Layout - 3 Panels */}
-      <div className="max-w-7xl mx-auto p-6 flex gap-6 h-[calc(100vh-80px)]">
-        {/* Left Panel - Datasets */}
-        <motion.div
-          initial={{ x: -20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.1 }}
-          className="w-64 flex flex-col gap-4"
-        >
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
-            <h3 className="text-sm font-semibold mb-4 text-slate-300">Datasets</h3>
-            
-            <motion.div
-              whileHover={{ scale: 1.02, borderColor: "rgba(59, 130, 246, 0.5)" }}
-              className="border-2 border-dashed border-slate-700 rounded-lg p-6 text-center hover:bg-slate-800/30 transition-all cursor-pointer mb-4"
-            >
-              <Upload className="w-6 h-6 mx-auto mb-2 text-slate-500" />
-              <p className="text-xs text-slate-500">Drop CSV here</p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setSelectedDataset("1")}
-              className={`p-3 rounded-lg cursor-pointer transition-all ${
-                selectedDataset === "1"
-                  ? "bg-blue-500/20 border-2 border-blue-500 shadow-lg shadow-blue-500/30"
-                  : "bg-slate-800/50 border border-slate-700 hover:bg-slate-800 hover:border-slate-600"
-              }`}
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <Database className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-medium">sales_data.csv</span>
-              </div>
-              <p className="text-xs text-slate-500">1,250 rows • 8 cols</p>
-            </motion.div>
-          </div>
-
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
-            <h3 className="text-sm font-semibold mb-3 text-slate-300">Tech Stack</h3>
-            <div className="space-y-2">
-              {["Next.js", "FastAPI", "GPT-4"].map((tech, i) => (
-                <motion.div
-                  key={tech}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + i * 0.1 }}
-                  whileHover={{ scale: 1.03, x: 4 }}
-                  className="px-3 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700 hover:border-slate-600 hover:bg-slate-800 transition-all"
-                >
-                  {tech}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Center - Chat + Workflow */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="flex-1 flex flex-col gap-4"
-        >
-          {/* Chat */}
-          <div className="flex-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-6 flex flex-col shadow-lg hover:shadow-xl transition-all">
-            <div className="flex-1 overflow-y-auto mb-4 space-y-3">
-              {messages.map((msg, index) => (
-                <motion.div
-                  key={msg.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className={`p-4 rounded-xl max-w-[80%] ${
-                    msg.role === "user"
-                      ? "ml-auto bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30"
-                      : "bg-slate-800/80 border border-slate-700/50 shadow-md"
-                  }`}
-                >
-                  <p className="text-sm leading-relaxed">{msg.content}</p>
-                </motion.div>
-              ))}
-              
-              {isTyping && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/50 shadow-md w-fit"
-                >
-                  <div className="flex gap-1.5">
-                    {[0, 1, 2].map((i) => (
-                      <motion.div
-                        key={i}
-                        animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                        className="w-2 h-2 bg-blue-400 rounded-full"
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </div>
-
-            <div className="flex gap-3">
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                placeholder={selectedDataset ? "Ask your data anything..." : "Select a dataset first"}
-                disabled={!selectedDataset}
-                className="flex-1 px-5 py-3.5 bg-slate-800/50 border border-slate-700 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:bg-slate-800 transition-all disabled:opacity-50 placeholder:text-slate-500"
-              />
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={handleSend}
-                disabled={!input.trim() || !selectedDataset}
-                className="px-7 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-medium hover:from-blue-500 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40"
-              >
-                <Send className="w-4 h-4" />
-                Send
-              </motion.button>
-            </div>
-          </div>
-
-          {/* Workflow Steps */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 shadow-lg"
-          >
-            <div className="flex justify-center gap-8">
-              {workflowSteps.map((step, index) => {
-                const Icon = step.icon;
-                const isActive = currentStep === index + 1;
-                const isComplete = currentStep > index + 1;
-                
-                return (
-                  <motion.div
-                    key={step.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    className="flex flex-col items-center"
-                  >
-                    <motion.div
-                      animate={{
-                        scale: isActive ? 1.15 : 1,
-                        backgroundColor: isComplete
-                          ? "rgb(34, 197, 94)"
-                          : isActive
-                          ? "rgb(59, 130, 246)"
-                          : "rgb(30, 41, 59)"
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${
-                        isActive
-                          ? "border-blue-400 shadow-lg shadow-blue-500/50"
-                          : isComplete
-                          ? "border-green-400 shadow-lg shadow-green-500/50"
-                          : "border-slate-700"
-                      }`}
-                    >
-                      <Icon className={`w-5 h-5 ${isActive || isComplete ? "text-white" : "text-slate-500"}`} />
-                    </motion.div>
-                    <span className={`text-xs mt-2 font-medium transition-colors ${
-                      isActive ? step.color : isComplete ? "text-green-400" : "text-slate-500"
-                    }`}>
-                      {step.name}
-                    </span>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Right Panel - Output */}
-        <motion.div
-          initial={{ x: 20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="w-96 flex flex-col gap-4"
-        >
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
-            <h3 className="text-sm font-semibold mb-4 text-slate-300">Insights</h3>
-            <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="h-48 bg-gradient-to-br from-slate-800/50 to-slate-800/30 rounded-lg border border-slate-700 flex items-center justify-center overflow-hidden relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <p className="text-sm text-slate-500 relative z-10">Chart visualization</p>
-            </motion.div>
-          </div>
-
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all shadow-lg hover:shadow-xl">
-            <h3 className="text-sm font-semibold mb-3 text-slate-300">Stats</h3>
-            <div className="space-y-2">
-              {[
-                { label: "Queries", value: "24", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/30" },
-                { label: "Avg Time", value: "2.3s", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/30" },
-                { label: "Success", value: "98%", color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/30" }
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + i * 0.1 }}
-                  whileHover={{ scale: 1.03, x: -4 }}
-                  className={`flex justify-between p-3 ${stat.bg} rounded-lg border ${stat.border} hover:border-opacity-70 transition-all shadow-sm`}
-                >
-                  <span className="text-sm text-slate-400">{stat.label}</span>
-                  <span className={`text-sm font-semibold ${stat.color}`}>{stat.value}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
   );
