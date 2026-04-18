@@ -38,7 +38,17 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-4">Center Panel</div>
+        <div className="p-4 flex flex-col">
+          {/* Chat Section */}
+          <div className="flex-1 mb-4">
+            <h2 className="text-sm font-semibold mb-4 text-gray-300">Chat</h2>
+            <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto">
+              <div className="space-y-3">
+                <div className="text-sm text-gray-400">Start a conversation...</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="border-l border-gray-800 p-4">Right Panel</div>
       </div>
     </div>
