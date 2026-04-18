@@ -94,7 +94,23 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="border-l border-gray-800 p-4">Right Panel</div>
+        {/* Right Panel */}
+        <div className="border-l border-gray-800 p-4 overflow-y-auto">
+          <h2 className="text-sm font-semibold mb-4 text-gray-300">Insights</h2>
+          
+          {/* Output Card */}
+          <div className="bg-gray-900 rounded-lg border border-gray-800 p-4 mb-4">
+            <div className="text-xs text-gray-500 mb-2">Revenue Trend</div>
+            <div className="text-2xl font-semibold mb-1">$124,500</div>
+            <div className="text-xs text-green-500">↑ 12.5% from last month</div>
+          </div>
+
+          <div className="bg-gray-900 rounded-lg border border-gray-800 p-4">
+            <div className="text-xs text-gray-500 mb-2">Top Product</div>
+            <div className="text-lg font-medium mb-1">Product A</div>
+            <div className="text-xs text-gray-400">2,450 units sold</div>
+          </div>
+        </div>
       </div>
     </div>
   );
