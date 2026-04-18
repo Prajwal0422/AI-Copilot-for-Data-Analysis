@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       {/* Top Navbar */}
       <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 to-black">
         <div className="flex items-center justify-between">
