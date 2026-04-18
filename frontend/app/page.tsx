@@ -44,7 +44,19 @@ export default function Home() {
             <h2 className="text-sm font-semibold mb-4 text-gray-300">Chat</h2>
             <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto">
               <div className="space-y-3">
-                <div className="text-sm text-gray-400">Start a conversation...</div>
+                {/* User Message */}
+                <div className="flex justify-end">
+                  <div className="bg-blue-600 rounded-lg px-4 py-2 max-w-[80%]">
+                    <div className="text-sm">Analyze sales trends</div>
+                  </div>
+                </div>
+                
+                {/* AI Message */}
+                <div className="flex justify-start">
+                  <div className="bg-gray-800 rounded-lg px-4 py-2 max-w-[80%]">
+                    <div className="text-sm">I'll analyze the sales trends for you...</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
