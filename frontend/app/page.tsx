@@ -10,6 +10,13 @@ export default function Home() {
           </div>
         </div>
       </nav>
+
+      {/* Main Grid Layout */}
+      <div className="grid grid-cols-[250px_1fr_350px] h-[calc(100vh-73px)]">
+        <div className="border-r border-gray-800 p-4">Left Panel</div>
+        <div className="p-4">Center Panel</div>
+        <div className="border-l border-gray-800 p-4">Right Panel</div>
+      </div>
     </div>
   );
 }
