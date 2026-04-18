@@ -33,11 +33,11 @@ export default function Home() {
 
           {/* Dataset List */}
           <div className="space-y-2">
-            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-gray-700 transition-colors cursor-pointer">
+            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-blue-600 hover:bg-gray-800 transition-all cursor-pointer">
               <div className="text-sm font-medium">sales_data.csv</div>
               <div className="text-xs text-gray-500 mt-1">1.2 MB</div>
             </div>
-            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-gray-700 transition-colors cursor-pointer">
+            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-blue-600 hover:bg-gray-800 transition-all cursor-pointer">
               <div className="text-sm font-medium">customers.json</div>
               <div className="text-xs text-gray-500 mt-1">856 KB</div>
             </div>
