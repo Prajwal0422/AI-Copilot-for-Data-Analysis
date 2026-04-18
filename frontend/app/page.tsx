@@ -59,6 +59,18 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            
+            {/* Input Box */}
+            <div className="mt-4 flex gap-2">
+              <input 
+                type="text" 
+                placeholder="Ask anything about your data..."
+                className="flex-1 bg-gray-900 border border-gray-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-600"
+              />
+              <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                Send
+              </button>
+            </div>
           </div>
         </div>
         <div className="border-l border-gray-800 p-4">Right Panel</div>
