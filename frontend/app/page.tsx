@@ -72,6 +72,27 @@ export default function Home() {
               </button>
             </div>
           </div>
+
+          {/* Workflow Section */}
+          <div>
+            <h2 className="text-sm font-semibold mb-4 text-gray-300">Workflow</h2>
+            <div className="bg-gray-900 rounded-lg border border-gray-800 p-4">
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center text-xs">✓</div>
+                  <div className="text-sm">Data loaded</div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-xs">2</div>
+                  <div className="text-sm">Processing...</div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center text-xs">3</div>
+                  <div className="text-sm text-gray-500">Generate insights</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="border-l border-gray-800 p-4">Right Panel</div>
       </div>
