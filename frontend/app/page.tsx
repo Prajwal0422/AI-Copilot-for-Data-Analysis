@@ -25,6 +25,18 @@ export default function Home() {
               <div className="text-xs mt-1">or click to browse</div>
             </div>
           </div>
+
+          {/* Dataset List */}
+          <div className="space-y-2">
+            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-gray-700 transition-colors cursor-pointer">
+              <div className="text-sm font-medium">sales_data.csv</div>
+              <div className="text-xs text-gray-500 mt-1">1.2 MB</div>
+            </div>
+            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-gray-700 transition-colors cursor-pointer">
+              <div className="text-sm font-medium">customers.json</div>
+              <div className="text-xs text-gray-500 mt-1">856 KB</div>
+            </div>
+          </div>
         </div>
         <div className="p-4">Center Panel</div>
         <div className="border-l border-gray-800 p-4">Right Panel</div>
