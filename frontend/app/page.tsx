@@ -2,11 +2,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Top Navbar */}
-      <nav className="border-b border-gray-800 px-6 py-4">
+      <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 to-black">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-semibold">AI Data Copilot</h1>
+          <h1 className="text-xl font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            AI Data Copilot
+          </h1>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-400">Status: Active</span>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-sm text-gray-400">Active</span>
+            </div>
           </div>
         </div>
       </nav>
