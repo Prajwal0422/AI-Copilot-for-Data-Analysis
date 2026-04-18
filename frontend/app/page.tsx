@@ -12,10 +12,10 @@ export default function Home() {
       </nav>
 
       {/* Main Grid Layout */}
-      <div className="grid grid-cols-[250px_1fr_350px] h-[calc(100vh-73px)]">
+      <div className="grid grid-cols-[280px_1fr_380px] h-[calc(100vh-73px)] gap-0">
         {/* Left Panel */}
-        <div className="border-r border-gray-800 p-4 overflow-y-auto">
-          <h2 className="text-sm font-semibold mb-4 text-gray-300">Datasets</h2>
+        <div className="border-r border-gray-800 p-6 overflow-y-auto">
+          <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Datasets</h2>
           
           {/* Upload Section */}
           <div className="border-2 border-dashed border-gray-700 rounded-lg p-4 mb-4 text-center hover:border-gray-600 transition-colors cursor-pointer">
@@ -38,10 +38,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-4 flex flex-col">
+        <div className="p-6 flex flex-col">
           {/* Chat Section */}
-          <div className="flex-1 mb-4">
-            <h2 className="text-sm font-semibold mb-4 text-gray-300">Chat</h2>
+          <div className="flex-1 mb-6">
+            <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Chat</h2>
             <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto">
               <div className="space-y-3">
                 {/* User Message */}
@@ -75,7 +75,7 @@ export default function Home() {
 
           {/* Workflow Section */}
           <div>
-            <h2 className="text-sm font-semibold mb-4 text-gray-300">Workflow</h2>
+            <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Workflow</h2>
             <div className="bg-gray-900 rounded-lg border border-gray-800 p-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -95,8 +95,8 @@ export default function Home() {
           </div>
         </div>
         {/* Right Panel */}
-        <div className="border-l border-gray-800 p-4 overflow-y-auto">
-          <h2 className="text-sm font-semibold mb-4 text-gray-300">Insights</h2>
+        <div className="border-l border-gray-800 p-6 overflow-y-auto">
+          <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Insights</h2>
           
           {/* Output Card */}
           <div className="bg-gray-900 rounded-lg border border-gray-800 p-4 mb-4">
