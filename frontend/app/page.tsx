@@ -47,18 +47,18 @@ export default function Home() {
           {/* Chat Section */}
           <div className="flex-1 mb-6">
             <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Chat</h2>
-            <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto">
-              <div className="space-y-3">
+            <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1">
+              <div className="space-y-4">
                 {/* User Message */}
-                <div className="flex justify-end">
-                  <div className="bg-blue-600 rounded-lg px-4 py-2 max-w-[80%]">
+                <div className="flex justify-end animate-fade-in">
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] shadow-lg">
                     <div className="text-sm">Analyze sales trends</div>
                   </div>
                 </div>
                 
                 {/* AI Message */}
-                <div className="flex justify-start">
-                  <div className="bg-gray-800 rounded-lg px-4 py-2 max-w-[80%]">
+                <div className="flex justify-start animate-fade-in">
+                  <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] border border-gray-700">
                     <div className="text-sm">I'll analyze the sales trends for you...</div>
                   </div>
                 </div>
