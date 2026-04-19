@@ -114,16 +114,25 @@ export default function Home() {
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Insights</h2>
           
           {/* Output Card */}
-          <div className="bg-gray-900 rounded-lg border border-gray-800 p-4 mb-4 hover:shadow-lg hover:shadow-blue-900/20 transition-all">
-            <div className="text-xs text-gray-500 mb-2">Revenue Trend</div>
-            <div className="text-2xl font-semibold mb-1">$124,500</div>
-            <div className="text-xs text-green-500">↑ 12.5% from last month</div>
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl border border-gray-800 p-5 mb-4 hover:shadow-xl hover:shadow-green-900/30 hover:border-green-800/50 transition-all group">
+            <div className="flex items-start justify-between mb-3">
+              <div className="text-xs text-gray-500 uppercase tracking-wide">Revenue Trend</div>
+              <div className="text-xl">📈</div>
+            </div>
+            <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">$124,500</div>
+            <div className="flex items-center gap-1 text-xs text-green-500 font-medium">
+              <span>↑ 12.5%</span>
+              <span className="text-gray-600">from last month</span>
+            </div>
           </div>
 
-          <div className="bg-gray-900 rounded-lg border border-gray-800 p-4 hover:shadow-lg hover:shadow-purple-900/20 transition-all">
-            <div className="text-xs text-gray-500 mb-2">Top Product</div>
-            <div className="text-lg font-medium mb-1">Product A</div>
-            <div className="text-xs text-gray-400">2,450 units sold</div>
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl border border-gray-800 p-5 hover:shadow-xl hover:shadow-purple-900/30 hover:border-purple-800/50 transition-all group">
+            <div className="flex items-start justify-between mb-3">
+              <div className="text-xs text-gray-500 uppercase tracking-wide">Top Product</div>
+              <div className="text-xl">🏆</div>
+            </div>
+            <div className="text-xl font-bold mb-2 text-purple-400">Product A</div>
+            <div className="text-xs text-gray-400">2,450 units sold this month</div>
           </div>
         </div>
       </div>
