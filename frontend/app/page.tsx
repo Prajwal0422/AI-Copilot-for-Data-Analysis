@@ -33,13 +33,23 @@ export default function Home() {
 
           {/* Dataset List */}
           <div className="space-y-2">
-            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-blue-600 hover:bg-gray-800 transition-all cursor-pointer">
-              <div className="text-sm font-medium">sales_data.csv</div>
-              <div className="text-xs text-gray-500 mt-1">1.2 MB</div>
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-3 border border-gray-800 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20 transition-all cursor-pointer group">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm font-medium group-hover:text-blue-400 transition-colors">sales_data.csv</div>
+                  <div className="text-xs text-gray-500 mt-1">1.2 MB • CSV</div>
+                </div>
+                <div className="text-gray-600 group-hover:text-blue-500 transition-colors">📊</div>
+              </div>
             </div>
-            <div className="bg-gray-900 rounded-lg p-3 border border-gray-800 hover:border-blue-600 hover:bg-gray-800 transition-all cursor-pointer">
-              <div className="text-sm font-medium">customers.json</div>
-              <div className="text-xs text-gray-500 mt-1">856 KB</div>
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-3 border border-gray-800 hover:border-purple-600 hover:shadow-lg hover:shadow-purple-900/20 transition-all cursor-pointer group">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm font-medium group-hover:text-purple-400 transition-colors">customers.json</div>
+                  <div className="text-xs text-gray-500 mt-1">856 KB • JSON</div>
+                </div>
+                <div className="text-gray-600 group-hover:text-purple-500 transition-colors">📄</div>
+              </div>
             </div>
           </div>
         </div>
