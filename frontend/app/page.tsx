@@ -92,9 +92,9 @@ export default function Home() {
               <input 
                 type="text" 
                 placeholder="Ask anything about your data..."
-                className="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all"
+                className="flex-1 bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-gray-600"
               />
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-3 rounded-xl text-sm font-medium transition-all hover:scale-105 active:scale-95">
+              <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 px-8 py-3 rounded-xl text-sm font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-900/50">
                 Send
               </button>
             </div>
