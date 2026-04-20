@@ -25,8 +25,11 @@ export default function Home() {
       {/* Main Grid Layout */}
       <div className="grid grid-cols-[280px_1fr_380px] h-[calc(100vh-73px)] gap-0">
         {/* Left Panel */}
-        <div className="border-r border-gray-800 p-6 overflow-y-auto">
-          <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Datasets</h2>
+        <div className="border-r border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent">
+          <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
+            <span className="text-blue-500">📊</span>
+            Datasets
+          </h2>
           
           {/* Upload Section */}
           <div className="border-2 border-dashed border-gray-700 rounded-xl p-4 mb-4 text-center hover:border-blue-600 hover:bg-gray-900/50 transition-all cursor-pointer">
@@ -59,10 +62,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-6 flex flex-col">
+        <div className="p-6 flex flex-col bg-gradient-to-b from-transparent via-gray-900/30 to-transparent">
           {/* Chat Section */}
           <div className="flex-1 mb-6">
-            <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Chat</h2>
+            <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
+              <span className="text-purple-500">💬</span>
+              Chat
+            </h2>
             <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1">
               <div className="space-y-4">
                 {/* User Message */}
@@ -96,7 +102,10 @@ export default function Home() {
 
           {/* Workflow Section */}
           <div>
-            <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Workflow</h2>
+            <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
+              <span className="text-green-500">⚡</span>
+              Workflow
+            </h2>
             <div className="bg-gray-900 rounded-xl border border-gray-800 p-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors">
@@ -116,8 +125,11 @@ export default function Home() {
           </div>
         </div>
         {/* Right Panel */}
-        <div className="border-l border-gray-800 p-6 overflow-y-auto">
-          <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide">Insights</h2>
+        <div className="border-l border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent">
+          <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
+            <span className="text-yellow-500">✨</span>
+            Insights
+          </h2>
           
           {/* Output Card */}
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl border border-gray-800 p-5 mb-4 hover:shadow-xl hover:shadow-green-900/30 hover:border-green-800/50 transition-all group">
