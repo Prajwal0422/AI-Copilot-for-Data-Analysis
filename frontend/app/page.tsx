@@ -32,11 +32,11 @@ export default function Home() {
           </h2>
           
           {/* Upload Section */}
-          <div className="border-2 border-dashed border-gray-700 rounded-xl p-4 mb-4 text-center hover:border-blue-600 hover:bg-gray-900/50 transition-all cursor-pointer">
+          <div className="border-2 border-dashed border-gray-700 rounded-xl p-6 mb-4 text-center hover:border-blue-500 hover:bg-gradient-to-br hover:from-blue-900/10 hover:to-purple-900/10 transition-all cursor-pointer group">
             <div className="text-gray-400 text-sm">
-              <div className="mb-2 text-2xl">📁</div>
-              <div className="font-medium">Drop files here</div>
-              <div className="text-xs mt-1 text-gray-500">or click to browse</div>
+              <div className="mb-3 text-3xl group-hover:scale-110 transition-transform">📁</div>
+              <div className="font-medium text-gray-300">Drop files here</div>
+              <div className="text-xs mt-2 text-gray-500">CSV, JSON, Excel supported</div>
             </div>
           </div>
 
