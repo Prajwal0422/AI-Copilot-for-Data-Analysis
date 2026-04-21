@@ -69,18 +69,18 @@ export default function Home() {
               <span className="text-purple-500">💬</span>
               Chat
             </h2>
-            <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1">
+            <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1 backdrop-blur-sm bg-opacity-50">
               <div className="space-y-4">
                 {/* User Message */}
                 <div className="flex justify-end animate-fade-in">
-                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] shadow-lg">
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] shadow-lg shadow-blue-900/50">
                     <div className="text-sm">Analyze sales trends</div>
                   </div>
                 </div>
                 
                 {/* AI Message */}
                 <div className="flex justify-start animate-fade-in">
-                  <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] border border-gray-700">
+                  <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] border border-gray-700 shadow-lg">
                     <div className="text-sm">I'll analyze the sales trends for you...</div>
                   </div>
                 </div>
