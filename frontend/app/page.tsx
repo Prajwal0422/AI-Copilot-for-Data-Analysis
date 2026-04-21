@@ -23,9 +23,11 @@ export default function Home() {
       </nav>
 
       {/* Main Grid Layout */}
-      <div className="grid grid-cols-[280px_1fr_380px] h-[calc(100vh-73px)] gap-0">
+      <div className="grid grid-cols-[280px_1fr_380px] h-[calc(100vh-73px)] gap-0 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-transparent to-purple-900/5 pointer-events-none"></div>
+        
         {/* Left Panel */}
-        <div className="border-r border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent">
+        <div className="border-r border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent relative z-10">
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
             <span className="text-blue-500">📊</span>
             Datasets
@@ -62,7 +64,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-6 flex flex-col bg-gradient-to-b from-transparent via-gray-900/30 to-transparent">
+        <div className="p-6 flex flex-col bg-gradient-to-b from-transparent via-gray-900/30 to-transparent relative z-10">
           {/* Chat Section */}
           <div className="flex-1 mb-6">
             <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
@@ -125,7 +127,7 @@ export default function Home() {
           </div>
         </div>
         {/* Right Panel */}
-        <div className="border-l border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent">
+        <div className="border-l border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent relative z-10">
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
             <span className="text-yellow-500">✨</span>
             Insights
