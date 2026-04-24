@@ -110,17 +110,20 @@ export default function Home() {
             </h2>
             <div className="bg-gray-900 rounded-xl border border-gray-800 p-4">
               <div className="space-y-3">
-                <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-sm font-semibold shadow-lg shadow-green-900/50">✓</div>
                   <div className="text-sm font-medium">Data loaded</div>
+                  <div className="ml-auto text-xs text-green-500">Complete</div>
                 </div>
-                <div className="flex items-center gap-3 p-2 rounded-lg bg-blue-900/20 border border-blue-800/50">
+                <div className="flex items-center gap-3 p-2 rounded-lg bg-blue-900/20 border border-blue-800/50 cursor-pointer">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-sm font-semibold shadow-lg shadow-blue-900/50 animate-pulse">2</div>
                   <div className="text-sm font-medium">Processing...</div>
+                  <div className="ml-auto text-xs text-blue-400">In Progress</div>
                 </div>
-                <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer opacity-60">
                   <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm font-semibold">3</div>
                   <div className="text-sm text-gray-500">Generate insights</div>
+                  <div className="ml-auto text-xs text-gray-600">Pending</div>
                 </div>
               </div>
             </div>
