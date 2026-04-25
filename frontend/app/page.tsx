@@ -13,11 +13,15 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-900/50 rounded-full border border-gray-800">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-900/50 rounded-full border border-gray-800 hover:border-green-700 transition-colors">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span className="text-xs text-gray-400 font-medium">Active</span>
             </div>
-            <div className="text-xs text-gray-500">GPT-4</div>
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <span className="px-2 py-1 bg-purple-900/20 text-purple-400 rounded">GPT-4</span>
+              <span className="text-gray-600">•</span>
+              <span>Fast Mode</span>
+            </div>
           </div>
         </div>
       </nav>
