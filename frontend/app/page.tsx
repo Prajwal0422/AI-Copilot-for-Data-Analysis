@@ -5,12 +5,12 @@ export default function Home() {
       <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-sm font-bold">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-base font-bold shadow-lg shadow-purple-900/50 hover:scale-105 transition-transform cursor-pointer">
               AI
             </div>
-            <h1 className="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+            <h2 className="text-sm font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               AI Data Copilot
-            </h1>
+            </h2>
           </div>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-900/50 rounded-full border border-gray-800 hover:border-green-700 transition-colors">
