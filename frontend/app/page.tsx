@@ -84,16 +84,18 @@ export default function Home() {
             <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1 backdrop-blur-sm bg-opacity-50 hover:border-gray-700 transition-colors">
               <div className="space-y-4">
                 {/* User Message */}
-                <div className="flex justify-end animate-fade-in">
-                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] shadow-lg shadow-blue-900/50 hover:shadow-blue-800/60 transition-shadow">
+                <div className="flex justify-end animate-fade-in group">
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] shadow-lg shadow-blue-900/50 hover:shadow-blue-800/60 transition-shadow cursor-pointer">
                     <div className="text-sm leading-relaxed">Analyze sales trends</div>
+                    <div className="text-xs text-blue-200 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Just now</div>
                   </div>
                 </div>
                 
                 {/* AI Message */}
-                <div className="flex justify-start animate-fade-in">
-                  <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] border border-gray-700 shadow-lg hover:border-gray-600 transition-colors">
+                <div className="flex justify-start animate-fade-in group">
+                  <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] border border-gray-700 shadow-lg hover:border-gray-600 transition-colors cursor-pointer">
                     <div className="text-sm leading-relaxed">I'll analyze the sales trends for you...</div>
+                    <div className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">2 seconds ago</div>
                   </div>
                 </div>
               </div>
