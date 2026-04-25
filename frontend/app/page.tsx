@@ -47,20 +47,23 @@ export default function Home() {
           <div className="space-y-2">
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-3 border border-gray-800 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20 transition-all cursor-pointer group">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm font-medium group-hover:text-blue-400 transition-colors">sales_data.csv</div>
-                  <div className="text-xs text-gray-500 mt-1">1.2 MB • CSV</div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <div className="text-sm font-medium group-hover:text-blue-400 transition-colors">sales_data.csv</div>
+                    <span className="text-xs bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded">Active</span>
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">1.2 MB • CSV • 5 mins ago</div>
                 </div>
-                <div className="text-gray-600 group-hover:text-blue-500 transition-colors">📊</div>
+                <div className="text-gray-600 group-hover:text-blue-500 transition-colors text-xl">📊</div>
               </div>
             </div>
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-3 border border-gray-800 hover:border-purple-600 hover:shadow-lg hover:shadow-purple-900/20 transition-all cursor-pointer group">
               <div className="flex items-center justify-between">
-                <div>
+                <div className="flex-1">
                   <div className="text-sm font-medium group-hover:text-purple-400 transition-colors">customers.json</div>
-                  <div className="text-xs text-gray-500 mt-1">856 KB • JSON</div>
+                  <div className="text-xs text-gray-500 mt-1">856 KB • JSON • 12 mins ago</div>
                 </div>
-                <div className="text-gray-600 group-hover:text-purple-500 transition-colors">📄</div>
+                <div className="text-gray-600 group-hover:text-purple-500 transition-colors text-xl">📄</div>
               </div>
             </div>
           </div>
