@@ -76,10 +76,11 @@ export default function Home() {
         <div className="p-6 flex flex-col bg-gradient-to-b from-transparent via-gray-900/30 to-transparent relative z-10">
           {/* Chat Section */}
           <div className="flex-1 mb-6">
-            <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
-              <span className="text-purple-500">💬</span>
-              Chat
-            </h2>
+          <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
+            <span className="text-purple-500 text-lg">💬</span>
+            <span>Chat</span>
+            <span className="ml-auto text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded-full">2 messages</span>
+          </h2>
             <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1 backdrop-blur-sm bg-opacity-50 hover:border-gray-700 transition-colors">
               <div className="space-y-4">
                 {/* User Message */}
