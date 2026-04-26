@@ -170,13 +170,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl border border-gray-800 p-5 hover:shadow-xl hover:shadow-purple-900/30 hover:border-purple-700/50 transition-all group cursor-pointer">
-            <div className="flex items-start justify-between mb-3">
-              <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Top Product</div>
-              <div className="text-2xl group-hover:scale-110 transition-transform">🏆</div>
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl border border-gray-800 p-5 hover:shadow-xl hover:shadow-purple-900/30 hover:border-purple-700/50 transition-all group cursor-pointer relative overflow-hidden">
+            <div className="absolute inset-0 animate-shimmer"></div>
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-3">
+                <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Top Product</div>
+                <div className="text-2xl group-hover:scale-110 transition-transform">🏆</div>
+              </div>
+              <div className="text-xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Product A</div>
+              <div className="text-xs text-gray-400">2,450 units sold this month</div>
             </div>
-            <div className="text-xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Product A</div>
-            <div className="text-xs text-gray-400">2,450 units sold this month</div>
           </div>
         </div>
       </div>
