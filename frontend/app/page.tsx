@@ -29,7 +29,7 @@ export default function Home() {
 
       {/* Main Grid Layout */}
       <div className="grid grid-cols-[280px_1fr_380px] h-[calc(100vh-73px)] gap-0 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-transparent to-purple-900/5 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-transparent to-purple-900/5 pointer-events-none animate-pulse"></div>
         
         {/* Left Panel */}
         <div className="border-r border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent relative z-10">
