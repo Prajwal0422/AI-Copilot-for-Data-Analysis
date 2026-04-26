@@ -151,13 +151,20 @@ export default function Home() {
           </h2>
           
           {/* Output Card */}
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl border border-gray-800 p-5 mb-4 hover:shadow-xl hover:shadow-green-900/30 hover:border-green-700/50 transition-all group cursor-pointer">
-            <div className="flex items-start justify-between mb-3">
-              <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Revenue Trend</div>
-              <div className="text-2xl group-hover:scale-110 transition-transform">📈</div>
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl border border-gray-800 p-5 mb-4 hover:shadow-xl hover:shadow-green-900/30 hover:border-green-700/50 transition-all group cursor-pointer relative overflow-hidden">
+            <div className="absolute inset-0 animate-shimmer"></div>
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-3">
+                <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Revenue Trend</div>
+                <div className="text-2xl group-hover:scale-110 transition-transform">📈</div>
+              </div>
+              <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent">$124,500</div>
+              <div className="flex items-center gap-1 text-xs font-medium">
+                <span className="text-green-400">↑ 12.5%</span>
+                <span className="text-gray-600">vs last month</span>
+              </div>
             </div>
-            <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent">$124,500</div>
-            <div className="flex items-center gap-1 text-xs font-medium">
+          </div>
               <span className="text-green-400">↑ 12.5%</span>
               <span className="text-gray-600">vs last month</span>
             </div>
