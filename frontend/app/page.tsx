@@ -2,8 +2,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       {/* Top Navbar */}
-      <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 backdrop-blur-sm">
-        <div className="flex items-center justify-between">
+      <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 backdrop-blur-sm relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5"></div>
+        <div className="flex items-center justify-between relative z-10">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-base font-bold shadow-lg shadow-purple-900/50 hover:scale-105 transition-transform cursor-pointer">
               AI
