@@ -111,8 +111,9 @@ export default function Home() {
                 placeholder="Ask anything about your data..."
                 className="flex-1 bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-gray-600 hover:border-gray-700"
               />
-              <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 px-8 py-3 rounded-xl text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-900/50 hover:shadow-purple-800/60">
-                Send ✨
+              <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 px-8 py-3 rounded-xl text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-900/50 hover:shadow-purple-800/60 relative overflow-hidden group">
+                <span className="relative z-10">Send ✨</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
               </button>
             </div>
           </div>
