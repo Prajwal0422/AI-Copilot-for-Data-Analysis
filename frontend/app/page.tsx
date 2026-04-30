@@ -11,7 +11,7 @@ export default function Home() {
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-base font-bold shadow-lg shadow-purple-900/50 hover:scale-105 transition-transform cursor-pointer">
               AI
             </div>
-            <h2 className="text-sm font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-sm font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent text-lg">
               AI Data Copilot
             </h2>
           </div>
