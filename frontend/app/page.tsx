@@ -2,8 +2,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-purple-900/10"></div>
+      
       {/* Top Navbar */}
-      <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 backdrop-blur-sm relative overflow-hidden">
+      <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 backdrop-blur-sm relative overflow-hidden z-20">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5"></div>
         <div className="flex items-center justify-between relative z-10">
           <div className="flex items-center gap-3">
