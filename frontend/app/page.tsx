@@ -53,7 +53,8 @@ export default function Home() {
 
           {/* Dataset List */}
           <div className="space-y-2">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-3 border border-gray-800 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20 transition-all cursor-pointer group">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-3 border border-gray-800 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20 transition-all cursor-pointer group relative">
+              <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
