@@ -85,7 +85,7 @@ export default function Home() {
             <span>Chat</span>
             <span className="ml-auto text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded-full">2 messages</span>
           </h2>
-            <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1 backdrop-blur-sm bg-opacity-50 hover:border-gray-700 transition-colors">
+            <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1 backdrop-blur-sm bg-opacity-50 hover:border-gray-700 transition-colors scroll-smooth">
               <div className="space-y-4">
                 {/* User Message */}
                 <div className="flex justify-end animate-fade-in group">
