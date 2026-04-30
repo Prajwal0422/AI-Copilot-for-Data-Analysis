@@ -133,7 +133,7 @@ export default function Home() {
                   <div className="ml-auto text-xs text-green-500">Complete</div>
                 </div>
                 <div className="flex items-center gap-3 p-2 rounded-lg bg-blue-900/20 border border-blue-800/50 cursor-pointer">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-sm font-semibold shadow-lg shadow-blue-900/50 animate-pulse">2</div>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-sm font-semibold shadow-lg shadow-blue-900/50 animate-pulse ring-2 ring-blue-500/30">2</div>
                   <div className="text-sm font-medium">Processing...</div>
                   <div className="ml-auto text-xs text-blue-400">In Progress</div>
                 </div>
