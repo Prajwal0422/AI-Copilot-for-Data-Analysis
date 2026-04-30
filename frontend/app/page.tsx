@@ -149,7 +149,7 @@ export default function Home() {
         {/* Right Panel */}
         <div className="border-l border-gray-800 p-6 overflow-y-auto bg-gradient-to-b from-gray-900/50 to-transparent relative z-10">
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
-            <span className="text-yellow-500 text-lg">✨</span>
+            <span className="text-yellow-500 text-lg animate-pulse">✨</span>
             <span>Insights</span>
             <span className="ml-auto text-xs bg-yellow-900/30 text-yellow-400 px-2 py-1 rounded-full">Live</span>
           </h2>
