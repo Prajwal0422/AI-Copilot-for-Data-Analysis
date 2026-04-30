@@ -125,7 +125,7 @@ export default function Home() {
               <span className="text-green-500">⚡</span>
               Workflow
             </h2>
-            <div className="bg-gray-900 rounded-xl border border-gray-800 p-4 hover:border-gray-700 transition-colors">
+            <div className="bg-gray-900 rounded-xl border border-gray-800 p-4 hover:border-gray-700 transition-colors shadow-inner">
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-sm font-semibold shadow-lg shadow-green-900/50 ring-2 ring-green-500/20">✓</div>
