@@ -81,7 +81,7 @@ export default function Home() {
           {/* Chat Section */}
           <div className="flex-1 mb-6">
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
-            <span className="text-purple-500 text-lg">💬</span>
+            <span className="text-purple-500 text-lg animate-pulse">💬</span>
             <span>Chat</span>
             <span className="ml-auto text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded-full">2 messages</span>
           </h2>
