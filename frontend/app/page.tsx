@@ -59,7 +59,7 @@ export default function Home() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <div className="text-sm font-medium group-hover:text-blue-400 transition-colors">sales_data.csv</div>
-                    <span className="text-xs bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded">Active</span>
+                    <span className="text-xs bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded font-semibold">Active</span>
                   </div>
                   <div className="text-xs text-gray-500 mt-1">1.2 MB • CSV • 5 mins ago</div>
                 </div>
