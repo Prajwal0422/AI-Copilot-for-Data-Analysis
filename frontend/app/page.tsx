@@ -38,7 +38,7 @@ export default function Home() {
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
             <span className="text-blue-500 text-lg animate-bounce">📊</span>
             <span>Datasets</span>
-            <span className="ml-auto text-xs bg-blue-900/30 text-blue-400 px-2 py-1 rounded-full">2</span>
+            <span className="ml-auto text-xs bg-blue-900/30 text-blue-400 px-2 py-1 rounded-full font-medium">2</span>
           </h2>
           
           {/* Upload Section */}
