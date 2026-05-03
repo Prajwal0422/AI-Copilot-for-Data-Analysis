@@ -103,7 +103,7 @@ export default function Home() {
                 <div className="flex justify-end animate-fade-in group">
                   <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] shadow-lg shadow-blue-900/50 hover:shadow-blue-800/60 transition-shadow cursor-pointer">
                     <div className="text-sm leading-relaxed">Analyze sales trends</div>
-                    <div className="text-xs text-blue-200 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Just now</div>
+                    <div className="text-xs text-blue-200 mt-1 opacity-0 group-hover:opacity-100 transition-opacity font-medium">Just now</div>
                   </div>
                 </div>
                 
