@@ -151,7 +151,7 @@ export default function Home() {
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
             <span className="text-yellow-500 text-lg animate-pulse">✨</span>
             <span>Insights</span>
-            <span className="ml-auto text-xs bg-yellow-900/30 text-yellow-400 px-2 py-1 rounded-full">Live</span>
+            <span className="ml-auto text-xs bg-yellow-900/30 text-yellow-400 px-2 py-1 rounded-full font-medium">Live</span>
           </h2>
           
           {/* Output Card */}
