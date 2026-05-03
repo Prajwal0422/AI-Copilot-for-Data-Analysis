@@ -76,7 +76,13 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="text-sm font-medium group-hover:text-purple-400 transition-colors">customers.json</div>
-                  <div className="text-xs text-gray-500 mt-1">856 KB • JSON • 12 mins ago</div>
+                  <div className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                    <span>856 KB</span>
+                    <span>•</span>
+                    <span>JSON</span>
+                    <span>•</span>
+                    <span className="text-gray-400">12 mins ago</span>
+                  </div>
                 </div>
                 <div className="text-gray-600 group-hover:text-purple-500 transition-colors text-xl">📄</div>
               </div>
