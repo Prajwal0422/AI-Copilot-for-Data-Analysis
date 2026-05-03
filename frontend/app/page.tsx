@@ -142,7 +142,7 @@ export default function Home() {
                 <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-sm font-semibold shadow-lg shadow-green-900/50 ring-2 ring-green-500/20">✓</div>
                   <div className="text-sm font-medium">Data loaded</div>
-                  <div className="ml-auto text-xs text-green-500">Complete</div>
+                  <div className="ml-auto text-xs text-green-500 font-semibold">Complete</div>
                 </div>
                 <div className="flex items-center gap-3 p-2 rounded-lg bg-blue-900/20 border border-blue-800/50 cursor-pointer">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-sm font-semibold shadow-lg shadow-blue-900/50 animate-pulse ring-2 ring-blue-500/30">2</div>
