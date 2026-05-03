@@ -111,7 +111,7 @@ export default function Home() {
                 <div className="flex justify-start animate-fade-in group">
                   <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] border border-gray-700 shadow-lg hover:border-gray-600 transition-colors cursor-pointer">
                     <div className="text-sm leading-relaxed">I'll analyze the sales trends for you...</div>
-                    <div className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">2 seconds ago</div>
+                    <div className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity font-medium">2 seconds ago</div>
                   </div>
                 </div>
               </div>
