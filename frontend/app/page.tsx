@@ -83,7 +83,7 @@ export default function Home() {
           <h2 className="text-sm font-semibold mb-6 text-gray-300 uppercase tracking-wide flex items-center gap-2">
             <span className="text-purple-500 text-lg animate-pulse">💬</span>
             <span>Chat</span>
-            <span className="ml-auto text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded-full">2 messages</span>
+            <span className="ml-auto text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded-full font-medium">2 messages</span>
           </h2>
             <div className="bg-gray-900 rounded-lg border border-gray-800 h-[300px] p-4 overflow-y-auto mb-1 backdrop-blur-sm bg-opacity-50 hover:border-gray-700 transition-colors scroll-smooth">
               <div className="space-y-4">
