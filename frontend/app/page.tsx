@@ -69,7 +69,7 @@ export default function Home() {
                     <span className="text-green-500">5 mins ago</span>
                   </div>
                 </div>
-                <div className="text-gray-600 group-hover:text-blue-500 transition-colors text-xl">📊</div>
+                <div className="text-gray-600 group-hover:text-blue-500 transition-colors text-xl transform group-hover:scale-110 transition-transform">📊</div>
               </div>
             </div>
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-3 border border-gray-800 hover:border-purple-600 hover:shadow-lg hover:shadow-purple-900/20 transition-all cursor-pointer group">
