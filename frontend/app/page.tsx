@@ -61,7 +61,13 @@ export default function Home() {
                     <div className="text-sm font-medium group-hover:text-blue-400 transition-colors">sales_data.csv</div>
                     <span className="text-xs bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded font-semibold">Active</span>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">1.2 MB • CSV • 5 mins ago</div>
+                  <div className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                    <span>1.2 MB</span>
+                    <span>•</span>
+                    <span>CSV</span>
+                    <span>•</span>
+                    <span className="text-green-500">5 mins ago</span>
+                  </div>
                 </div>
                 <div className="text-gray-600 group-hover:text-blue-500 transition-colors text-xl">📊</div>
               </div>
