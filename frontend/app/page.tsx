@@ -152,7 +152,7 @@ export default function Home() {
                 <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer opacity-60 hover:opacity-80">
                   <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm font-semibold border border-gray-600">3</div>
                   <div className="text-sm text-gray-500">Generate insights</div>
-                  <div className="ml-auto text-xs text-gray-600">Pending</div>
+                  <div className="ml-auto text-xs text-gray-600 font-semibold">Pending</div>
                 </div>
               </div>
             </div>
