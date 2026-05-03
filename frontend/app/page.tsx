@@ -84,7 +84,7 @@ export default function Home() {
                     <span className="text-gray-400">12 mins ago</span>
                   </div>
                 </div>
-                <div className="text-gray-600 group-hover:text-purple-500 transition-colors text-xl">📄</div>
+                <div className="text-gray-600 group-hover:text-purple-500 transition-colors text-xl transform group-hover:scale-110 transition-transform">📄</div>
               </div>
             </div>
           </div>
