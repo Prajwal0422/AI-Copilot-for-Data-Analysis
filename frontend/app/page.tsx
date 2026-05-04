@@ -46,7 +46,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div className="text-gray-400 text-sm relative z-10">
               <div className="mb-3 text-3xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">📁</div>
-              <div className="font-medium text-gray-300">Drop files here</div>
+              <div className="font-medium text-gray-300 group-hover:text-white transition-colors">Drop files here</div>
               <div className="text-xs mt-2 text-gray-500">CSV, JSON, Excel supported</div>
             </div>
           </div>
