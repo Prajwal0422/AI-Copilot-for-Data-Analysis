@@ -47,7 +47,7 @@ export default function Home() {
             <div className="text-gray-400 text-sm relative z-10">
               <div className="mb-3 text-3xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">📁</div>
               <div className="font-medium text-gray-300 group-hover:text-white transition-colors">Drop files here</div>
-              <div className="text-xs mt-2 text-gray-500">CSV, JSON, Excel supported</div>
+              <div className="text-xs mt-2 text-gray-500 group-hover:text-gray-400 transition-colors">CSV, JSON, Excel supported</div>
             </div>
           </div>
 
