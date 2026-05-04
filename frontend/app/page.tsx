@@ -45,7 +45,7 @@ export default function Home() {
           <div className="relative border-2 border-dashed border-gray-700 rounded-xl p-6 mb-4 text-center hover:border-blue-500 hover:bg-gradient-to-br hover:from-blue-900/10 hover:to-purple-900/10 transition-all cursor-pointer group overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div className="text-gray-400 text-sm relative z-10">
-              <div className="mb-3 text-3xl group-hover:scale-110 transition-transform">📁</div>
+              <div className="mb-3 text-3xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">📁</div>
               <div className="font-medium text-gray-300">Drop files here</div>
               <div className="text-xs mt-2 text-gray-500">CSV, JSON, Excel supported</div>
             </div>
