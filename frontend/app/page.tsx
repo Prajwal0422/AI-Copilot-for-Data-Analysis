@@ -174,7 +174,7 @@ export default function Home() {
                 <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Revenue Trend</div>
                 <div className="text-2xl group-hover:scale-110 transition-transform">📈</div>
               </div>
-              <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent">$124,500</div>
+              <div className="text-3xl font-extrabold mb-2 bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent">$124,500</div>
               <div className="flex items-center gap-1 text-xs font-medium">
                 <span className="text-green-400">↑ 12.5%</span>
                 <span className="text-gray-600">vs last month</span>
