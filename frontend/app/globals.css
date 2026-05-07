@@ -41,3 +41,16 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
   background-size: 1000px 100%;
 }
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
