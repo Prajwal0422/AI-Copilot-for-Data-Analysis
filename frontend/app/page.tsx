@@ -18,7 +18,7 @@ export default function Home() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-900/50 rounded-full border border-gray-800 hover:border-green-700 transition-colors cursor-pointer">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-lg shadow-green-500/50"></div>
-              <span className="text-xs text-gray-400 font-medium">Active</span>
+              <span className="text-xs text-gray-400 font-medium animate-pulse">Active</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-gray-500">
               <span className="px-2 py-1 bg-purple-900/20 text-purple-400 rounded font-medium">GPT-4</span>
