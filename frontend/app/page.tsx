@@ -23,7 +23,7 @@ export default function Home() {
             <div className="flex items-center gap-2 text-xs text-gray-500">
               <span className="px-2 py-1 bg-purple-900/20 text-purple-400 rounded font-medium">GPT-4</span>
               <span className="text-gray-600">•</span>
-              <span>Fast Mode</span>
+              <span className="font-medium">Fast Mode</span>
             </div>
           </div>
         </div>
