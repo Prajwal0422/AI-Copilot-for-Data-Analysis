@@ -193,7 +193,7 @@ export default function Home() {
                 <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Top Product</div>
                 <div className="text-2xl group-hover:scale-110 transition-transform">🏆</div>
               </div>
-              <div className="text-xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Product A</div>
+              <div className="text-xl font-extrabold mb-2 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Product A</div>
               <div className="text-xs text-gray-400">2,450 units sold this month</div>
             </div>
           </div>
