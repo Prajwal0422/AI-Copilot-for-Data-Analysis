@@ -5,7 +5,7 @@ export default function Home() {
       
       {/* Top Navbar */}
       <nav className="border-b border-gray-800 px-6 py-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 backdrop-blur-sm relative overflow-hidden z-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5 animate-pulse"></div>
         <div className="flex items-center justify-between relative z-10">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-base font-bold shadow-lg shadow-purple-900/50 hover:scale-110 transition-transform cursor-pointer animate-pulse">
