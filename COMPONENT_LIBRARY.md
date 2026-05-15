@@ -18,7 +18,6 @@ import LoadingSpinner from "@/components/LoadingSpinner";
 
 <LoadingSpinner />
 ```
-
 **Features**:
 - Three animated dots
 - Pulsing animation with staggered delays

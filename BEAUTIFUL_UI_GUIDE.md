@@ -13,7 +13,9 @@ This is a completely redesigned, stunning AI Data Copilot interface with modern 
 ### 2. Glassmorphism
 - Frosted glass effect with backdrop-blur-xl
 - Semi-transparent backgrounds (white/5)
-- Subtle borders (white/10)
+- Subtle borders (white/10)+
++
+
 - Modern, premium feel
 
 ### 3. Gradient Accents

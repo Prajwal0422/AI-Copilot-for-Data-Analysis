@@ -20,7 +20,7 @@ Show recruiters/interviewers that you can build **production-grade, visually stu
 **What to say**:
 > "This is an AI-powered data analysis copilot I built. Notice the smooth entrance animations and glassmorphism design - I wanted it to feel like a premium SaaS product, not a student project."
 
----
+---assdfghjkl
 
 ### 2. **Animated Workflow Pipeline** (1 minute)
 **What to show**: 
